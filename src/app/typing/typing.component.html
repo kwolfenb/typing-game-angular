@@ -1,0 +1,13 @@
+<button (click)="newGame()">Begin Game</button>
+
+<div class="phraseBox" *ngIf="currentPhrase">
+  <h5>{{ currentPhrase }}</h5>
+</div>
+
+<div>
+  <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keyup.space)="onSpaceDown(typedText.value)"></textarea>
+</div>
+<div>
+  <h5>{{typedWord}}</h5>
+</div>
+<button (click)="clearWords()">clear</button>
