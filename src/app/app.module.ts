@@ -10,6 +10,7 @@ import { PhrasesService } from "./phrases.service";
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { StopwatchComponent } from './stopwatch/stopwatch.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -19,7 +20,7 @@ export const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, TypingComponent],
+  declarations: [AppComponent, TypingComponent, StopwatchComponent],
   imports: [
     BrowserModule, 
     FormsModule, 
