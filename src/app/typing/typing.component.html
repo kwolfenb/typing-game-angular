@@ -8,8 +8,7 @@
     </div>
 
     <div>
-      <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)"
-        (keyup.space)="onSpaceUp()"></textarea>
+      <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)"></textarea>
     </div>
 
     <div class="stats">
