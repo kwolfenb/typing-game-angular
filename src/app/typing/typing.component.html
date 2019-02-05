@@ -19,9 +19,16 @@
 
     <!--Car animation-->
     <img id="car" [ngStyle]="{'left': percentFinished}" src="../../assets/car.png" alt="racecar">
+    <img id="road" src="../../assets/road.jpg" alt="">
     <img id="flag" src="../../assets/flag.svg" alt="flag">
+
+    <br>
+    <!--Car2  animation-->
+    <img id="car2" [ngStyle]="{'left': percentFinished}" src="../../assets/car2.png" alt="racecar">
+    <img id="road" src="../../assets/road.jpg" alt="">
+    <img id="flag" src="../../assets/flag2.svg" alt="flag">
     <p *ngIf="percentFinished">
-      {{percentFinished}} %
+      {{percentFinished}}
     </p>
 
   </div>
