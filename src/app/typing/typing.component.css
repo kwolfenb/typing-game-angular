@@ -1,6 +1,7 @@
 .phraseBox{
   border: solid black 2px;
   width: 50%;
+  font-size: 20px;
 }
 #typeArea {
   height: 50px;
