@@ -20,7 +20,7 @@ export class TypingComponent implements OnInit {
   time: number = 0;
   gameActive: boolean = false;
   wpm: number = 0;
-  percentFinished: number = 0;
+  percentFinished: string;
 
   ngOnInit() { }
 
@@ -79,7 +79,7 @@ export class TypingComponent implements OnInit {
     }
     let myContainer = <HTMLElement>document.querySelector(".phraseBox");
     myContainer.innerHTML = this.phraseWithActiveWord;
-    this.percentFinished = Math.floor((this.currentWord / this.wordArr.length) * 100);
+    this.percentFinished = Math.floor((this.currentWord / this.wordArr.length) * 500) + 'px';
   }
 
   errorCounter() {
@@ -101,36 +101,6 @@ export class TypingComponent implements OnInit {
     this.wpm = Math.round(this.currentWord / (this.time / 60));
   }
 
-  carPosition(num) {
-    if (num == 100) {
-      return "hundred";
-    }
-    else if (num >= 90) {
-      return "ninety";
-    }
-    else if (num >= 80) {
-      return "eighty";
-    }
-    else if (num >= 70) {
-      return "seventy";
-    }
-    else if (num >= 60) {
-      return "sixty";
-    }
-    else if (num >= 50) {
-      return "fifty";
-    }
-    else if (num >= 40) {
-      return "forty";
-    }
-    else if (num >= 30) {
-      return "thirty";
-    }
-    else if (num >= 20) {
-      return "twenty";
-    } else if (num >= 10) {
-      return "ten";
-    }
 
 
 
@@ -138,5 +108,6 @@ export class TypingComponent implements OnInit {
 
 
 
-  }
+
+
 }

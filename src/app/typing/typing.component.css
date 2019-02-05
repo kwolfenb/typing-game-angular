@@ -15,45 +15,5 @@
 
 img#flag {
   position: absolute;
-  left: 550px;
-}
-
-.ten {
-  left: 30px;
-}
-
-.twenty {
-  left: 60px;
-}
-
-.thirty {
-  left: 90px;
-}
-
-.forty {
-  left: 120px;
-}
-
-.fifty {
-  left: 150px;
-}
-
-.sixty {
-  left: 180px;
-}
-
-.seventy {
-  left: 210px;
-}
-
-.eighty {
-  left: 240px;
-}
-
-.ninety {
-  left: 270px;
-}
-
-.hundred {
-  left: 300px;
+  left: 750px;
 }
