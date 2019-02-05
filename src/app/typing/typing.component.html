@@ -1,38 +1,29 @@
 <div class="gamePlay">
 
-
-<div>
-  <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)"
-    (keyup.space)="onSpaceUp()"></textarea>
-</div>
-
-<div class="stats">
-  <h6>Errors: {{errorCount}}</h6>
-  <h6>Time: {{time}}</h6>
-  <h6>Words per minute: {{wpm}}</h6>
-</div>
-
-<!-- [class]="carPosition(percentFinished)"  -->
-<img id="car" [ngStyle]="{'left': percentFinished}" src="../../assets/car.png" alt="racecar">
-<img id="flag" src="../../assets/flag.svg" alt="flag">
-<p *ngIf="percentFinished">
-  {{percentFinished}} %
-</p>
   <h3 class="name">Player Name: {{childPlayerName}}</h3>
   <button (click)="newGame()" id="beginGame">Start Game!</button>
   <div class="activeGame" *ngIf="gameActive">
-    <div class="phraseBox"> 
+    <div class="phraseBox">
       <div [innerHTML]="phraseWithActiveWord"></div>
     </div>
-    
+
     <div>
-      <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)" (keydown.enter)="onSpaceDown(typedText.value)"></textarea>
+      <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)"
+        (keyup.space)="onSpaceUp()"></textarea>
     </div>
-    
+
     <div class="stats">
       <h6>Errors: {{errorCount}}</h6>
       <h6>Time: {{time}}</h6>
       <h6>Words per minute: {{wpm}}</h6>
     </div>
+
+    <!--Car animation-->
+    <img id="car" [ngStyle]="{'left': percentFinished}" src="../../assets/car.png" alt="racecar">
+    <img id="flag" src="../../assets/flag.svg" alt="flag">
+    <p *ngIf="percentFinished">
+      {{percentFinished}} %
+    </p>
+
   </div>
 </div>
