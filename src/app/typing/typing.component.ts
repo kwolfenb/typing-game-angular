@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { PhrasesService } from "../phrases.service";
 import { FormsModule } from "@angular/forms";
+import { Phrase } from '../models/phrase.model';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FirebaseListObservable } from 'angularfire2/database'; 
+import { async } from "@angular/core/testing";
 
 
 @Component({
@@ -10,7 +14,11 @@ import { FormsModule } from "@angular/forms";
   encapsulation: ViewEncapsulation.None
 })
 export class TypingComponent implements OnInit {
-  constructor(private phraseService: PhrasesService) { }
+  phrases: FirebaseListObservable<any[]>;
+
+  constructor(private phraseService: PhrasesService, private router: Router, private route: ActivatedRoute,) {
+
+  }
 
   childPlayerName = this.phraseService.playerName;
   currentPhrase: string = null;
@@ -24,19 +32,24 @@ export class TypingComponent implements OnInit {
   time: number = 0;
   gameActive: boolean = false;
   wpm: number = 0;
-  percentFinished: string;
+  
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.phraseService.getPhrase();
+  }
+
+  percentFinished: string;
 
   newGame() {
     this.gameActive = true;
     this.wordArr = [];
     this.currentWord = 0;
     this.time = 0;
-    this.currentPhrase = this.phraseService.getPhrase();
+    this.currentPhrase = this.phraseService.currenctPhrase;
     this.parseWords();
     this.updateActiveWord();
     this.startTimer();
+    console.log();
   }
 
   parseWords() {
