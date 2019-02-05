@@ -10,7 +10,7 @@ import { FormsModule } from "@angular/forms";
   encapsulation: ViewEncapsulation.None
 })
 export class TypingComponent implements OnInit {
-  constructor(private phraseService: PhrasesService) {}
+  constructor(private phraseService: PhrasesService) { }
 
   childPlayerName = this.phraseService.playerName;
   currentPhrase: string = null;
@@ -24,8 +24,9 @@ export class TypingComponent implements OnInit {
   time: number = 0;
   gameActive: boolean = false;
   wpm: number = 0;
+  percentFinished: string;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   newGame() {
     this.gameActive = true;
@@ -78,6 +79,9 @@ export class TypingComponent implements OnInit {
         this.updatePhrase(this.wordArr[i]);
       }
     }
+    let myContainer = <HTMLElement>document.querySelector(".phraseBox");
+    myContainer.innerHTML = this.phraseWithActiveWord;
+    this.percentFinished = Math.floor((this.currentWord / this.wordArr.length) * 500) + 'px';
 
   }
 
@@ -99,6 +103,7 @@ export class TypingComponent implements OnInit {
   updateWPM() {
     this.wpm = Math.round(this.currentWord / (this.time / 60));
   }
+
 
   updatePhrase(string) {
     this.phraseWithActiveWord += string +" ";

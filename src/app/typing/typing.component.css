@@ -20,11 +20,22 @@
   width: 50%;
   font-size: 20px;
 }
+
 #typeArea {
   margin-top: 10px;
   margin-bottom: 10px;
   height: 50px;
   width: 200px;
+}
+
+
+#car {
+  position: relative;
+}
+
+img#flag {
+  position: absolute;
+  left: 750px;
 }
 
 #beginGame {
@@ -34,4 +45,3 @@
   border: 4px solid #4CAF50;
   border-radius: 5px;
 }
-
