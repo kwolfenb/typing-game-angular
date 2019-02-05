@@ -3,7 +3,8 @@
 </div>
 
 <div>
-  <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)" (keyup.space)="onSpaceUp()"></textarea>
+  <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)"
+    (keyup.space)="onSpaceUp()"></textarea>
 </div>
 
 <div class="stats">
@@ -11,3 +12,9 @@
   <h6>Time: {{time}}</h6>
   <h6>Words per minute: {{wpm}}</h6>
 </div>
+
+<img id="car" [class]="carPosition(percentFinished)" src="../../assets/car.png" alt="racecar">
+<img id="flag" src="../../assets/flag.svg" alt="flag">
+<p *ngIf="percentFinished">
+  {{percentFinished}} %
+</p>

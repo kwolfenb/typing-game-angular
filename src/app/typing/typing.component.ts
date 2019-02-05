@@ -8,7 +8,7 @@ import { FormsModule } from "@angular/forms";
   styleUrls: ["./typing.component.css"]
 })
 export class TypingComponent implements OnInit {
-  constructor(private phraseService: PhrasesService) {}
+  constructor(private phraseService: PhrasesService) { }
 
   currentPhrase: string = null;
   wordArr: string[] = [];
@@ -20,8 +20,9 @@ export class TypingComponent implements OnInit {
   time: number = 0;
   gameActive: boolean = false;
   wpm: number = 0;
+  percentFinished: number = 0;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   newGame() {
     this.gameActive = true;
@@ -78,6 +79,7 @@ export class TypingComponent implements OnInit {
     }
     let myContainer = <HTMLElement>document.querySelector(".phraseBox");
     myContainer.innerHTML = this.phraseWithActiveWord;
+    this.percentFinished = Math.floor((this.currentWord / this.wordArr.length) * 100);
   }
 
   errorCounter() {
@@ -97,5 +99,44 @@ export class TypingComponent implements OnInit {
 
   updateWPM() {
     this.wpm = Math.round(this.currentWord / (this.time / 60));
+  }
+
+  carPosition(num) {
+    if (num == 100) {
+      return "hundred";
+    }
+    else if (num >= 90) {
+      return "ninety";
+    }
+    else if (num >= 80) {
+      return "eighty";
+    }
+    else if (num >= 70) {
+      return "seventy";
+    }
+    else if (num >= 60) {
+      return "sixty";
+    }
+    else if (num >= 50) {
+      return "fifty";
+    }
+    else if (num >= 40) {
+      return "forty";
+    }
+    else if (num >= 30) {
+      return "thirty";
+    }
+    else if (num >= 20) {
+      return "twenty";
+    } else if (num >= 10) {
+      return "ten";
+    }
+
+
+
+
+
+
+
   }
 }
