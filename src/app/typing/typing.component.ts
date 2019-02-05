@@ -1,21 +1,25 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { PhrasesService } from "../phrases.service";
 import { FormsModule } from "@angular/forms";
+
 
 @Component({
   selector: "app-typing",
   templateUrl: "./typing.component.html",
-  styleUrls: ["./typing.component.css"]
+  styleUrls: ["./typing.component.css"],
+  encapsulation: ViewEncapsulation.None
 })
 export class TypingComponent implements OnInit {
   constructor(private phraseService: PhrasesService) { }
 
+  childPlayerName = this.phraseService.playerName;
   currentPhrase: string = null;
   wordArr: string[] = [];
   currentWord: number = 0;
   typedWord: string;
 
   phraseWithActiveWord: string;
+  highlightedWord: string;
   errorCount: number = 0;
   time: number = 0;
   gameActive: boolean = false;
@@ -69,17 +73,16 @@ export class TypingComponent implements OnInit {
     this.phraseWithActiveWord = "";
     for (let i = 0; i < this.wordArr.length; i++) {
       if (i == this.currentWord) {
-        this.phraseWithActiveWord +=
-          '<span style="color:red; font-weight:bold">' +
-          this.wordArr[i] +
-          " </span>";
+        this.highlightedWord = '<span class="highlighted">' +this.wordArr[i] +' </span>';
+        this.updatePhrase(this.highlightedWord);
       } else {
-        this.phraseWithActiveWord += this.wordArr[i] + " ";
+        this.updatePhrase(this.wordArr[i]);
       }
     }
     let myContainer = <HTMLElement>document.querySelector(".phraseBox");
     myContainer.innerHTML = this.phraseWithActiveWord;
     this.percentFinished = Math.floor((this.currentWord / this.wordArr.length) * 500) + 'px';
+
   }
 
   errorCounter() {
@@ -102,12 +105,7 @@ export class TypingComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
-
-
+  updatePhrase(string) {
+    this.phraseWithActiveWord += string +" ";
+  }
 }

@@ -1,2 +1,11 @@
-<h1>Welcome to {{ title }}!</h1>
-<router-outlet></router-outlet>
+<div class="header">
+    <h1>TypeRacing</h1>
+</div>
+<div class="startGame" *ngIf="!start">
+    <h3>Enter your name:</h3>
+    <form>
+        <input #playerName id="name" type="text">
+        <button type="submit" id="startButton" (click)="startGame(playerName.value)">Submit</button>
+    </form>
+</div>
+<router-outlet *ngIf="start"></router-outlet>
