@@ -1,12 +1,14 @@
 <div class="gamePlay">
 
   <h3 class="name">Player Name: {{childPlayerName}}</h3>
-  <button (click)="newGame()" id="beginGame">Start Game!</button>
-  <div class="activeGame" *ngIf="gameActive">
-    <div class="phraseBox">
-      <div [innerHTML]="phraseWithActiveWord"></div>
-    </div>
-
+  <button (click)="newGame()" class="gameButton" *ngIf="!gameActive&&!gameStopped">Start Game!</button>
+  <button (click)="stopGame()" class="stopButton" *ngIf="gameActive||gameStopped">Stop</button>
+  <button (click)="restart()" class="gameButton" *ngIf="gameStopped">New Game</button>
+  
+  <div class="phraseBox">
+    <div [innerHTML]="phraseWithActiveWord"></div>
+  </div>
+  <div class="activeGame" *ngIf="gameActive||gameStopped">
     <div>
       <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)"></textarea>
     </div>

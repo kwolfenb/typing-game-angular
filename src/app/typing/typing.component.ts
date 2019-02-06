@@ -25,13 +25,14 @@ export class TypingComponent implements OnInit {
   wordArr: string[] = [];
   currentWord: number = 0;
   typedWord: string;
-
+  
   phraseWithActiveWord: string = "";
   highlightedWord: string;
   errorCount: number = 0;
   time: number = 0;
   gameActive: boolean = false;
   wpm: number = 0;
+  gameStopped: boolean = false;
   
 
   ngOnInit() {
@@ -42,14 +43,25 @@ export class TypingComponent implements OnInit {
   percentFinished: string;
 
   newGame() {
-    this.gameActive = true;
+    this.gameStopped = false;
+    this.gameActive = true; 
     this.wordArr = [];
     this.currentWord = 0;
     this.time = 0;
-    this.currentPhrase = this.phraseService.currenctPhrase;
+    this.currentPhrase = this.phraseService.currentPhrase;
     this.parseWords();
     this.updateActiveWord();
     this.startTimer();
+  }
+
+  restart() {
+    this.phraseService.getPhrase();
+    this.newGame();
+  }
+
+  stopGame() {
+    this.gameActive = false;
+    this.gameStopped = true;
   }
 
   parseWords() {
@@ -82,7 +94,7 @@ export class TypingComponent implements OnInit {
     this.typedWord = "";
   }
 
-  updateActiveWord() {
+  async updateActiveWord() {
     this.phraseWithActiveWord = "";
     for (let i = 0; i < this.wordArr.length; i++) {
       if (i == this.currentWord) {
@@ -104,10 +116,12 @@ export class TypingComponent implements OnInit {
 
   startTimer() {
     var timer = setInterval(() => {
-      if (this.gameActive == true) {
+
+       if (this.gameActive) {
         this.time++;
         this.updateWPM();
-      } else {
+      } 
+      else {
         clearInterval(timer);
       }
     }, 1000);
@@ -117,8 +131,8 @@ export class TypingComponent implements OnInit {
     this.wpm = Math.round(this.currentWord / (this.time / 60));
   }
 
-
   updatePhrase(string) {
     this.phraseWithActiveWord += string +" ";
   }
+
 }
