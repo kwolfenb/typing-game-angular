@@ -125,13 +125,17 @@ export class TypingComponent implements OnInit {
         this.updatePhrase(this.wordArr[i]);
       }
     }
+    
     let myContainer = <HTMLElement>document.querySelector(".phraseBox");
     myContainer.innerHTML = this.phraseWithActiveWord;
     this.percentFinished = Math.floor((this.currentWord / this.wordArr.length) * 500) + 'px';
     $("#car").animate({ left: this.percentFinished });
+    this.playCarAudio();
+    
   }
 
   errorCounter() {
+    this.errorAudio();
     this.errorCount++;
   }
 
@@ -157,7 +161,18 @@ export class TypingComponent implements OnInit {
 
   }
 
-
+  playCarAudio(){
+    let audio = new Audio();
+    audio.src = "../../../assets/audio/carsound2.mp3";
+    audio.load();
+    audio.play();
+  }
+  errorAudio(){
+    let audio = new Audio();
+    audio.src = "../../../assets/audio/beep1.mp3";
+    audio.load();
+    audio.play();
+  }
   startingCountdown() {
     this.countdown = 3;
     this.countingDown = true;
