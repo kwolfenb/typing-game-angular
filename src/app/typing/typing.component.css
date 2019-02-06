@@ -121,19 +121,19 @@ img#flag, #flag2 {
   width: auto;
   position: fixed;
   right:302px;
-  clip: rect(0, 155px, 100px, 105px);
+  clip: rect(0, 300px, 200px, 204px);
 }
 .stoplightyellow {
   height: 200px;
   width: auto;
   right:251px;
   position: fixed;
-  clip: rect(0, 100px, 100px, 52px);
+  clip: rect(0, 200px, 200px, 100px);
 }
 .stoplightgreen {
   height: 200px;
   width: auto;
   right:201px;
   position: fixed;
-  clip: rect(0, 50px, 100px, 0);
+  clip: rect(0, 100px, 200px, 0);
 }
