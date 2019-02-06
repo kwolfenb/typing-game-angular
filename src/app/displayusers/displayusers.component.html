@@ -1,0 +1,6 @@
+<div class="container">
+  <h2>Details of Players:</h2>
+  <div *ngFor="let player of players | async" class="panel panel-default">
+    <h3><em>{{player.name}}   || {{player.wpm}} wpm ||  {{player.time}} sec</em></h3><br>
+  </div>
+</div>
