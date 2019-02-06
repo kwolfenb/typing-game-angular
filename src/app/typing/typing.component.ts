@@ -43,6 +43,8 @@ export class TypingComponent implements OnInit {
   countdown: number = 3;
   countingDown: boolean = false;
 
+  // Get the modal
+  modal = document.getElementById('myModal');
 
   ngOnInit() {
     this.phraseService.getPhrase();
@@ -108,10 +110,11 @@ export class TypingComponent implements OnInit {
       this.errorCounter();
     }
     if (this.currentWord >= this.wordArr.length) {
-      alert("you are finished. Time: " + this.time);
+      console.log(this.modal);
       this.gameActive = false;
       this.updatePlayerData();
       this.stopGame();
+      this.modal.setAttribute("style", "visibility:block;");
     }
   }
 
@@ -129,13 +132,13 @@ export class TypingComponent implements OnInit {
         this.updatePhrase(this.wordArr[i]);
       }
     }
-    
+
     let myContainer = <HTMLElement>document.querySelector(".phraseBox");
     myContainer.innerHTML = this.phraseWithActiveWord;
     this.percentFinished = Math.floor((this.currentWord / this.wordArr.length) * 500) + 'px';
     $("#car").animate({ left: this.percentFinished });
     this.playCarAudio();
-    
+
   }
 
   errorCounter() {
@@ -165,13 +168,13 @@ export class TypingComponent implements OnInit {
 
   }
 
-  playCarAudio(){
+  playCarAudio() {
     let audio = new Audio();
     audio.src = "../../../assets/audio/carsound2.mp3";
     audio.load();
     audio.play();
   }
-  errorAudio(){
+  errorAudio() {
     let audio = new Audio();
     audio.src = "../../../assets/audio/beep1.mp3";
     audio.load();
@@ -195,21 +198,25 @@ export class TypingComponent implements OnInit {
   admin() {
     this.currentWordOpponent = 0;
     var robot = setInterval(() => {
-      if (!this.gameStopped && this.currentWordOpponent<=this.wordArr.length) {
+      if (!this.gameStopped && this.currentWordOpponent <= this.wordArr.length) {
         this.currentWordOpponent++;
         this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / this.wordArr.length) * 500) + 'px';
         $("#carTwo").animate({ left: this.percentFinishedOpponent });
         console.log(this.percentFinishedOpponent);
       } else if (this.currentWordOpponent >= this.wordArr.length) {
 
-      } 
+      }
       else {
-        this.currentWordOpponent=0;
+        this.currentWordOpponent = 0;
         this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / this.wordArr.length) * 500) + 'px';
         $("#carTwo").animate({ left: this.percentFinishedOpponent });
         clearInterval(robot);
       }
     }, this.difficulty);
+  }
+
+  closeModal() {
+    this.gameStopped = !this.gameStopped;
   }
 
 }

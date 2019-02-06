@@ -48,6 +48,15 @@
 </div>
 <app-displayusers></app-displayusers>
 
-<div>
-  <button (click)="admin()">admin</button>
+
+
+<!-- The Modal -->
+<div *ngIf="gameStopped" id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h1>{{childPlayerName}}, your score was {{wpm}}!</h1>
+    <button (click)="restart()" class="replayButton" *ngIf="gameStopped">Play Again</button>
+  </div>
+
 </div>
