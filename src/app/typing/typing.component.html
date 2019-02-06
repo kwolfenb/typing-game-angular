@@ -16,15 +16,23 @@
     <div class="stats">
       <h6>Errors: {{errorCount}}</h6>
       <h6>Time: {{time}}</h6>
+      <app-stopwatch></app-stopwatch>
       <h6>Words per minute: {{wpm}}</h6>
     </div>
 
     <!--Car animation-->
     <img id="car" [ngStyle]="{'left': percentFinished}" src="../../assets/car.png" alt="racecar">
+    <img id="road" src="../../assets/road.jpg" alt="">
     <img id="flag" src="../../assets/flag.svg" alt="flag">
-    <p *ngIf="percentFinished">
-      {{percentFinished}} %
-    </p>
+    <span id='nameFlag'>
+      {{childPlayerName}}
+    </span>
+
+    <br>
+    <!--Car2  animation-->
+    <img id="car2" [ngStyle]="{'left': percentFinished}" src="../../assets/car2.png" alt="racecar">
+    <img id="road" src="../../assets/road.jpg" alt="">
+    <img id="flag" src="../../assets/flag2.svg" alt="flag">
 
   </div>
 </div>
