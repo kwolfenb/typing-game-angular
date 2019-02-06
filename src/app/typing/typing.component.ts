@@ -3,8 +3,10 @@ import { PhrasesService } from "../phrases.service";
 import { FormsModule } from "@angular/forms";
 import { Phrase } from '../models/phrase.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FirebaseListObservable } from 'angularfire2/database'; 
+import { FirebaseListObservable } from 'angularfire2/database';
 import { async } from "@angular/core/testing";
+declare var $: any;
+import { $ } from 'jquery';
 
 
 @Component({
@@ -16,7 +18,7 @@ import { async } from "@angular/core/testing";
 export class TypingComponent implements OnInit {
   phrases: FirebaseListObservable<any[]>;
 
-  constructor(private phraseService: PhrasesService, private router: Router, private route: ActivatedRoute,) {
+  constructor(private phraseService: PhrasesService, private router: Router, private route: ActivatedRoute, ) {
 
   }
 
@@ -25,7 +27,7 @@ export class TypingComponent implements OnInit {
   wordArr: string[] = [];
   currentWord: number = 0;
   typedWord: string;
-  
+
   phraseWithActiveWord: string = "";
   highlightedWord: string;
   errorCount: number = 0;
@@ -33,18 +35,18 @@ export class TypingComponent implements OnInit {
   gameActive: boolean = false;
   wpm: number = 0;
   gameStopped: boolean = false;
-  
+
 
   ngOnInit() {
     this.phraseService.getPhrase();
-    
+
   }
 
   percentFinished: string;
 
   newGame() {
     this.gameStopped = false;
-    this.gameActive = true; 
+    this.gameActive = true;
     this.wordArr = [];
     this.currentWord = 0;
     this.time = 0;
@@ -98,7 +100,7 @@ export class TypingComponent implements OnInit {
     this.phraseWithActiveWord = "";
     for (let i = 0; i < this.wordArr.length; i++) {
       if (i == this.currentWord) {
-        this.highlightedWord = '<span class="highlighted">' +this.wordArr[i] +' </span>';
+        this.highlightedWord = '<span class="highlighted">' + this.wordArr[i] + ' </span>';
         this.updatePhrase(this.highlightedWord);
       } else {
         this.updatePhrase(this.wordArr[i]);
@@ -107,7 +109,7 @@ export class TypingComponent implements OnInit {
     let myContainer = <HTMLElement>document.querySelector(".phraseBox");
     myContainer.innerHTML = this.phraseWithActiveWord;
     this.percentFinished = Math.floor((this.currentWord / this.wordArr.length) * 500) + 'px';
-
+    $("#car").animate({ left: this.percentFinished });
   }
 
   errorCounter() {
@@ -117,10 +119,10 @@ export class TypingComponent implements OnInit {
   startTimer() {
     var timer = setInterval(() => {
 
-       if (this.gameActive) {
+      if (this.gameActive) {
         this.time++;
         this.updateWPM();
-      } 
+      }
       else {
         clearInterval(timer);
       }
@@ -132,7 +134,7 @@ export class TypingComponent implements OnInit {
   }
 
   updatePhrase(string) {
-    this.phraseWithActiveWord += string +" ";
+    this.phraseWithActiveWord += string + " ";
   }
 
 }

@@ -4,7 +4,7 @@
   <button (click)="newGame()" class="gameButton" *ngIf="!gameActive&&!gameStopped">Start Game!</button>
   <button (click)="stopGame()" class="stopButton" *ngIf="gameActive||gameStopped">Stop</button>
   <button (click)="restart()" class="gameButton" *ngIf="gameStopped">New Game</button>
-  
+
   <div class="phraseBox">
     <div [innerHTML]="phraseWithActiveWord"></div>
   </div>
@@ -21,7 +21,7 @@
     </div>
 
     <!--Car animation-->
-    <img id="car" [ngStyle]="{'left': percentFinished}" src="../../assets/car.png" alt="racecar">
+    <img id="car" src="../../assets/car.png" alt="racecar">
     <img id="road" src="../../assets/road.jpg" alt="">
     <img id="flag" src="../../assets/flag.svg" alt="flag">
     <span id='nameFlag'>
