@@ -12,7 +12,6 @@ import { DisplayService } from "./display.service";
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { StopwatchComponent } from './stopwatch/stopwatch.component';
 import { DisplayusersComponent } from './displayusers/displayusers.component';
 
 export const firebaseConfig = {
@@ -23,7 +22,7 @@ export const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, TypingComponent, StopwatchComponent, DisplayusersComponent],
+  declarations: [AppComponent, TypingComponent, DisplayusersComponent],
   imports: [
     BrowserModule, 
     FormsModule, 
