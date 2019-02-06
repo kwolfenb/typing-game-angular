@@ -2,19 +2,16 @@
 
     "phrases": [
         {
-        "phrase": "A fellow jumped off a high wall, And had a most terrible fall. He went back to bed, With a bump on his head, That's why you don't jump off a wall."
+        "phrase": "A fellow jumped off a high wall, And had a most terrible fall."
         }, 
         {
-        "phrase": "Limericks I cannot compose, With noxious smells in my nose. But this one was easy, I only felt queasy, Because I was sniffing my toes."
+        "phrase": "Limericks I cannot compose, With noxious smells in my nose."
         },
         {
-        "phrase": "There was an odd fellow named Gus, When travelling he made such a fuss. He was banned from the train, Not allowed on a plane, and now travels only by bus."
+        "phrase": "There was an odd fellow named Gus, When travelling he made such a fuss."
         }, 
         {
-        "phrase": "As the saying goes, the apple doesn't fall far from the tree. But what does that mean? Find out its definition, origin, and why fruit falls off trees in the first place."
-        },
-        {
-        "phrase": "Learn what an 'ugly duckling' is, where the phrase comes from, and read a summary of the classic story ."
+        "phrase": "As the saying goes"
         },
         {
         "phrase": "To get to the point, leaving out all of the unnecessary details. Similar to popular sayings such as 'beating around the bush'."
@@ -29,29 +26,23 @@
     "players": [
         {
             "name": "Manasa",
-            "time": "50",
+            "time": "2/5/2019, 06:08:28 PM",
             "wpm": "20"
         },        
         {
             "name": "Gulzat",
-            "time": "60",
+            "time": "2/4/2019, 06:08:28 AM",
             "wpm": "25"
         },       
         {
             "name": "Kenny",
-            "time": "30",
+            "time": "2/6/2019, 02:08:28 PM",
             "wpm": "35"
         },
         {
             "name": "James",
-            "time": "35",
+            "time": "2/3/2019, 09:08:28 PM",
             "wpm": "40"
         }
-    ],
-    "users":[
-        {
-            "userName": "manasa"
-        }
-    ]    
-
+    ]
 }

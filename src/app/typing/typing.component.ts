@@ -68,9 +68,13 @@ export class TypingComponent implements OnInit {
   }
 
   updatePlayerData() {
-    var displayObject = new Display(this.childPlayerName, this.time.toString(), this.wpm.toString());
+    var displayObject = new Display(this.childPlayerName, new Date(Date.now()).toLocaleString(), this.wpm);
     console.log(displayObject);
     this.displayService.addPlayer(displayObject);
+  }
+
+  orderBywpm(){
+    
   }
 
   stopGame() {
