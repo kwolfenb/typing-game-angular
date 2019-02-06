@@ -1,9 +1,4 @@
-<div *ngIf="countingDown" class="countdown">
-  <span *ngIf="countdown!==0">{{countdown}}</span>
-  <span *ngIf="countdown==0">Go!</span>
-  <br>
-  <img [ngClass]="{'stoplightred':countdown>=2, 'stoplightyellow':countdown==1, 'stoplightgreen': countdown==0}" src="https://www.freemanhealth.com/assets/images/blog-article-images/traffic_lights.jpg">
-</div>
+
 <div class="gamePlay">
 
   <h3 class="name">Player Name: {{childPlayerName}}</h3>
@@ -26,6 +21,12 @@
       <h6>Words per minute: {{wpm}}</h6>
     </div>
 
+    <div *ngIf="countingDown" class="countdown">
+      <span *ngIf="countdown==0">Go!</span>
+      <br>
+      <img [ngClass]="{'stoplightred':countdown>=2, 'stoplightyellow':countdown==1, 'stoplightgreen': countdown==0}" src="https://www.freemanhealth.com/assets/images/blog-article-images/traffic_lights.jpg">
+    </div>
+
     <!--Car animation-->
     <img id="car" [ngStyle]="{'left': percentFinished}" src="../../assets/car.png" alt="racecar">
     <img id="road" src="../../assets/road.jpg" alt="">
@@ -44,5 +45,5 @@
 </div>
 
 <div>
-  <button (click)="auto()">admin</button>
+  <button (click)="admin()">admin</button>
 </div>

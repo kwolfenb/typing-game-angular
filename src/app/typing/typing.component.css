@@ -116,21 +116,21 @@ img#flag, #flag2 {
 }
 
 .stoplightred{
-  height: 100px;
+  height: 200px;
   width: auto;
   position: fixed;
   right:302px;
   clip: rect(0, 155px, 100px, 105px);
 }
 .stoplightyellow {
-  height: 100px;
+  height: 200px;
   width: auto;
   right:251px;
   position: fixed;
   clip: rect(0, 100px, 100px, 52px);
 }
 .stoplightgreen {
-  height: 100px;
+  height: 200px;
   width: auto;
   right:201px;
   position: fixed;
