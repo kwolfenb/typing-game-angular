@@ -28,7 +28,9 @@ export class TypingComponent implements OnInit {
   currentPhrase: string = null;
   wordArr: string[] = [];
   currentWord: number = 0;
+  currentWordOpponent: number = 0;
   typedWord: string;
+  difficulty: number;
 
   phraseWithActiveWord: string = "";
   highlightedWord: string;
@@ -48,6 +50,7 @@ export class TypingComponent implements OnInit {
   }
 
   percentFinished: string;
+  percentFinishedOpponent: string;
 
   newGame() {
     this.gameStopped = false;
@@ -55,11 +58,12 @@ export class TypingComponent implements OnInit {
     this.wordArr = [];
     this.currentWord = 0;
     this.time = 0;
+    this.difficulty = this.phraseService.level * 1000;
+    this.currentWordOpponent = 0;
     this.currentPhrase = this.phraseService.currentPhrase;
     this.parseWords();
     this.updateActiveWord();
     this.startingCountdown();
-    // this.startTimer();
   }
 
   restart() {
@@ -73,14 +77,14 @@ export class TypingComponent implements OnInit {
     this.displayService.addPlayer(displayObject);
   }
 
-  orderBywpm(){
-    
+  orderBywpm() {
+
   }
 
   stopGame() {
     this.gameActive = false;
     this.gameStopped = true;
-    
+
   }
 
   parseWords() {
@@ -167,21 +171,30 @@ export class TypingComponent implements OnInit {
       if (this.countdown < 0) {
         this.startTimer();
         this.countingDown = false;
+        this.admin();
         clearInterval(countdownInterval)
       }
     }, 2000)
   }
 
   admin() {
+    this.currentWordOpponent = 0;
     var robot = setInterval(() => {
-      if (!this.gameStopped) {
+      if (!this.gameStopped && this.currentWordOpponent<=this.wordArr.length) {
+        this.currentWordOpponent++;
+        this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / this.wordArr.length) * 500) + 'px';
+        $("#carTwo").animate({ left: this.percentFinishedOpponent });
+        console.log(this.percentFinishedOpponent);
+      } else if (this.currentWordOpponent >= this.wordArr.length) {
 
-        this.typedWord = this.wordArr[this.currentWord];
-        this.onSpaceDown(this.typedWord);
-      } else {
+      } 
+      else {
+        this.currentWordOpponent=0;
+        this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / this.wordArr.length) * 500) + 'px';
+        $("#carTwo").animate({ left: this.percentFinishedOpponent });
         clearInterval(robot);
       }
-    }, 100);
+    }, this.difficulty);
   }
 
 }

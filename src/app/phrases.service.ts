@@ -21,6 +21,7 @@ export class PhrasesService {
   }
 
   playerName: string;
+  level: number;
 
   // library: string[] = [
   //   "A fellow jumped off a high wall, And had a most terrible fall. He went back to bed, With a bump on his head, That's why you don't jump off a wall.",

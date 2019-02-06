@@ -5,7 +5,19 @@
     <h3>Enter your name:</h3>
     <form>
         <input #playerName id="name" type="text">
-        <button type="submit" id="startButton" (click)="startGame(playerName.value)">Submit</button>
+        <div class="opponent">
+
+            <h3>Choose your opponent difficulty:</h3>
+            
+            <select #opponent>
+                <option value="3">Easy</option>
+                <option value="2">Medium</option>
+                <option value="1">Hard</option>
+                <option value=".5">Insanity</option>
+            </select>
+        </div>
+        <br>
+        <button type="submit" id="startButton" (click)="startGame(playerName.value, opponent.value)">Submit</button>
     </form>
 </div>
 <router-outlet *ngIf="start"></router-outlet>

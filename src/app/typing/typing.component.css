@@ -42,6 +42,9 @@
 #car {
   position: relative;
 }
+#carTwo {
+  position: relative;
+}
 
 #nameFlag {
   position: absolute;

@@ -14,9 +14,10 @@ export class AppComponent {
 
   start: boolean = false;
   
-  startGame(name) {
+  startGame(name, opponent) {
     this.start = true;
     this.phraseService.playerName = name;
+    this.phraseService.level = opponent;
   }
 
 }
