@@ -151,6 +151,7 @@ export class TypingComponent implements OnInit {
         clearInterval(countdownInterval)
       }
     }, 2000)
+  }
 
   auto() {
     var robot = setInterval(() => {
