@@ -1,5 +1,18 @@
   {
+    "activePlayers": [
+        {
+            "id": "1",
+            "name": "blank",
+            "progress": "500"
 
+        },
+        {
+            "id": "2",
+            "name": "blank",
+            "progress": "50"
+
+        }
+    ],
     "phrases": [
         {
         "phrase": "A fellow jumped off a high wall, And had a most terrible fall."
@@ -45,4 +58,5 @@
             "wpm": "40"
         }
     ]
+
 }
