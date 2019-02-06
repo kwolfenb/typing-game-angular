@@ -5,6 +5,8 @@ import { Phrase } from '../models/phrase.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { async } from "@angular/core/testing";
+import { DisplayService } from "../display.service";
+import { Display } from "../models/display.model";
 
 
 @Component({
@@ -16,7 +18,7 @@ import { async } from "@angular/core/testing";
 export class TypingComponent implements OnInit {
   phrases: FirebaseListObservable<any[]>;
 
-  constructor(private phraseService: PhrasesService, private router: Router, private route: ActivatedRoute, ) {
+  constructor(private phraseService: PhrasesService, private router: Router, private route: ActivatedRoute, private displayService: DisplayService) {
 
   }
 
@@ -62,9 +64,16 @@ export class TypingComponent implements OnInit {
       .then(() => this.newGame());
   }
 
+  updatePlayerData() {
+    var displayObject = new Display(this.childPlayerName, this.time.toString(), this.wpm.toString());
+    console.log(displayObject);
+    this.displayService.addPlayer(displayObject);
+  }
+
   stopGame() {
     this.gameActive = false;
     this.gameStopped = true;
+    
   }
 
   parseWords() {
@@ -89,6 +98,8 @@ export class TypingComponent implements OnInit {
     }
     if (this.currentWord >= this.wordArr.length) {
       alert("you are finished. Time: " + this.time);
+      this.gameActive = false;
+      this.updatePlayerData();
       this.stopGame();
     }
   }
