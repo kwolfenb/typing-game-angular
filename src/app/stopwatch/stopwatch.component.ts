@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { timer } from 'rxjs/observable/timer';
 
 @Component({
   selector: 'app-stopwatch',
@@ -13,11 +14,12 @@ export class StopwatchComponent implements OnInit {
 
   }
 
-  h1 = <HTMLElement>document.querySelector('#time');
+  h1 = document.querySelector('time');
   start = document.getElementById('start');
-  seconds = 0;
-  minutes = 0;
-  hours = 0;
+  htmlStr: string;
+  seconds: number = 0;
+  minutes: number = 0;
+  hours: number = 0;
   t;
 
   add() {
@@ -31,9 +33,9 @@ export class StopwatchComponent implements OnInit {
       }
     }
 
-    // this.h1.innerHTML = (this.hours ? (this.hours > 9 ? this.hours : "0" + this.hours) : "00") + ":" + (this.minutes ? (this.minutes > 9 ? this.minutes : "0" + this.minutes) : "00") + ":" + (this.seconds > 9 ? this.seconds : "0" + this.seconds);
-
-
+    // this.htmlStr = (this.hours ? (this.hours > 9 ? this.hours : "0" + this.hours) : "00") + ":" + (this.minutes ? (this.minutes > 9 ? this.minutes : "0" + this.minutes) : "00") + ":" + (this.seconds > 9 ? this.seconds : "0" + this.seconds);
+    // console.log(this.htmlStr);
+    // timer();
   }
 
   timer() {
