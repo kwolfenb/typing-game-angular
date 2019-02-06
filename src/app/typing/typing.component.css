@@ -13,7 +13,6 @@
   text-decoration: underline;
 }
 
-
 .phraseBox {
   padding: 20px;
   margin-top: 10px;
@@ -86,7 +85,6 @@ img#flag, #flag2 {
 .gameButton:hover {
   background-color: #97be77;
 }
-
 .gameButton:active {
   background-color: #97be77;
   box-shadow: 0 3px #666;
@@ -100,17 +98,14 @@ img#flag, #flag2 {
   border-radius: 5px;
   box-shadow: 0 7px #999;
 }
-
 .stopButton:hover {
   background-color: #c07676;
 }
-
 .stopButton:active {
   background-color: #c07676;
   box-shadow: 0 3px #666;
   transform: translateY(4px);
 }
-
 
 .countdown {
   width: 100%;
@@ -121,24 +116,40 @@ img#flag, #flag2 {
 
 }
 
-.stoplightred{
-  height: 200px;
+.stoplightred, .stoplightred2{
+  height: 100px;
   width: auto;
-  position: fixed;
+  position: absolute;
   right:302px;
-  clip: rect(0, 300px, 200px, 204px);
+  clip: rect(0, 155px, 100px, 105px);
 }
-.stoplightyellow {
-  height: 200px;
+.stoplightyellow, .stoplightyellow2 {
+  height: 100px;
   width: auto;
   right:251px;
-  position: fixed;
-  clip: rect(0, 200px, 200px, 100px);
+  position: absolute;
+  clip: rect(0, 100px, 100px, 52px);
 }
-.stoplightgreen {
-  height: 200px;
+.stoplightgreen, .stoplightgreen2 {
+  height: 100px;
   width: auto;
   right:201px;
+  position: absolute;
+  clip: rect(0, 50px, 100px, 0);
+}
+
+.stoplightred2, .stoplightyellow2, .stoplightgreen2 {
+  top: 910px;
+}
+.stoplightred, .stoplightyellow, .stoplightgreen {
+  top: 650px;
+}
+
+.go {
+  font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+  font-size: 100px;
+  color: green;
+  font-weight: bold;
   position: fixed;
-  clip: rect(0, 100px, 200px, 0);
+  margin-left: 50%;
 }
