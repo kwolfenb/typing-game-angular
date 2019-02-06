@@ -5,6 +5,8 @@ import { Phrase } from '../models/phrase.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { async } from "@angular/core/testing";
+declare var $: any;
+import { $ } from 'jquery';
 import { DisplayService } from "../display.service";
 import { Display } from "../models/display.model";
 
@@ -35,6 +37,7 @@ export class TypingComponent implements OnInit {
   gameActive: boolean = false;
   wpm: number = 0;
   gameStopped: boolean = false;
+
   countdown: number = 3;
   countingDown: boolean = false;
 
@@ -121,7 +124,7 @@ export class TypingComponent implements OnInit {
     let myContainer = <HTMLElement>document.querySelector(".phraseBox");
     myContainer.innerHTML = this.phraseWithActiveWord;
     this.percentFinished = Math.floor((this.currentWord / this.wordArr.length) * 500) + 'px';
-
+    $("#car").animate({ left: this.percentFinished });
   }
 
   errorCounter() {
@@ -147,6 +150,7 @@ export class TypingComponent implements OnInit {
 
   updatePhrase(string) {
     this.phraseWithActiveWord += string + " ";
+
   }
 
 
