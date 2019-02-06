@@ -86,7 +86,7 @@ export class TypingComponent implements OnInit {
     }
     if (this.currentWord >= this.wordArr.length) {
       alert("you are finished. Time: " + this.time);
-      this.gameActive = false;
+      this.stopGame();
     }
   }
 
@@ -133,6 +133,18 @@ export class TypingComponent implements OnInit {
 
   updatePhrase(string) {
     this.phraseWithActiveWord += string +" ";
+  }
+
+  auto() {
+    var robot = setInterval(() => {
+      if (!this.gameStopped) {
+
+        this.typedWord = this.wordArr[this.currentWord];
+        this.onSpaceDown(this.typedWord);
+      } else { 
+        clearInterval(robot);
+      }
+    }, 100);
   }
 
 }

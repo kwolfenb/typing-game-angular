@@ -51,8 +51,7 @@
   left: 765px;
 }
 
-img#flag,
-#flag2 {
+img#flag, #flag2 {
   position: absolute;
   margin-top: 20px;
   left: 750px;
@@ -66,6 +65,7 @@ img#flag,
   position: absolute;
   left: 0;
   margin-top: 140px;
+}
 
 .gameButton {
   font-family:  "Rockwell Extra Bold", "Rockwell Bold", monospace;
