@@ -1,6 +1,15 @@
 <div class="container">
-  <h2>Details of Players:</h2>
-  <div *ngFor="let player of players | async" class="panel panel-default">
-    <h3><em>{{player.name}}   || {{player.wpm}} wpm ||  {{player.time}} sec</em></h3><br>
-  </div>
+  <h2>Top Best Typers</h2>
+  <table style="width:50%">
+    <tr>
+      <th>UserName</th>
+      <th>Word Per Minute</th>
+      <th>Activity Time</th>
+    </tr>
+    <tbody *ngFor="let player of (players | async).slice().reverse()">
+      <td>{{player.name}} </td>
+      <td>{{player.wpm}} </td>
+      <td>{{player.time}} </td>
+    </tbody>
+</table>
 </div>

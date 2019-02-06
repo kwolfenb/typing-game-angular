@@ -6,10 +6,15 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class DisplayService {
 
-  players: FirebaseListObservable<any[]>;
+  players: FirebaseListObservable<any>;
 
   constructor(private database: AngularFireDatabase) {
-    this.players = database.list('players');
+    this.players = database.list('players', {
+      query: {
+        orderByChild: "wpm",
+        limitToFirst: 10
+      }
+    });
   }
 
   getPlayers() {
@@ -23,4 +28,6 @@ export class DisplayService {
   addPlayer(newPlayer: Display){
     this.players.push(newPlayer);
   }
+
+
 }
