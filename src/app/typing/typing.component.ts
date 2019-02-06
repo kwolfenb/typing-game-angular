@@ -35,6 +35,8 @@ export class TypingComponent implements OnInit {
   gameActive: boolean = false;
   wpm: number = 0;
   gameStopped: boolean = false;
+  countdown: number = 3;
+  countingDown: boolean = false;
   
 
   ngOnInit() {
@@ -53,12 +55,13 @@ export class TypingComponent implements OnInit {
     this.currentPhrase = this.phraseService.currentPhrase;
     this.parseWords();
     this.updateActiveWord();
-    this.startTimer();
+    this.startingCountdown();
+    // this.startTimer();
   }
 
   restart() {
-    this.phraseService.getPhrase();
-    this.newGame();
+    this.phraseService.getPhrase()
+    .then(() => this.newGame());
   }
 
   updatePlayerData() {
@@ -97,6 +100,7 @@ export class TypingComponent implements OnInit {
       alert("you are finished. Time: " + this.time);
       this.gameActive = false;
       this.updatePlayerData();
+      this.stopGame();
     }
   }
 
@@ -143,6 +147,32 @@ export class TypingComponent implements OnInit {
 
   updatePhrase(string) {
     this.phraseWithActiveWord += string +" ";
+  }
+
+
+  startingCountdown() {
+    this.countdown = 3;
+    this.countingDown = true;
+    var countdownInterval= setInterval(() => {
+      this.countdown --;
+      console.log(this.countdown);
+      if (this.countdown < 0) {
+        this.startTimer();
+        this.countingDown = false;
+        clearInterval(countdownInterval)
+      }
+    }, 2000)
+
+  auto() {
+    var robot = setInterval(() => {
+      if (!this.gameStopped) {
+
+        this.typedWord = this.wordArr[this.currentWord];
+        this.onSpaceDown(this.typedWord);
+      } else { 
+        clearInterval(robot);
+      }
+    }, 100);
   }
 
 }
