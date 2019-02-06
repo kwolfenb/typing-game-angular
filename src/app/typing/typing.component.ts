@@ -70,7 +70,7 @@ export class TypingComponent implements OnInit {
   stopGame() {
     this.gameActive = false;
     this.gameStopped = true;
-    this.updatePlayerData();
+    
   }
 
   parseWords() {
@@ -96,6 +96,7 @@ export class TypingComponent implements OnInit {
     if (this.currentWord >= this.wordArr.length) {
       alert("you are finished. Time: " + this.time);
       this.gameActive = false;
+      this.updatePlayerData();
     }
   }
 
