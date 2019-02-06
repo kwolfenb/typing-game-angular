@@ -5,6 +5,8 @@ import { Phrase } from '../models/phrase.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database'; 
 import { async } from "@angular/core/testing";
+import { DisplayService } from "../display.service";
+import { Display } from "../models/display.model";
 
 
 @Component({
@@ -16,7 +18,7 @@ import { async } from "@angular/core/testing";
 export class TypingComponent implements OnInit {
   phrases: FirebaseListObservable<any[]>;
 
-  constructor(private phraseService: PhrasesService, private router: Router, private route: ActivatedRoute,) {
+  constructor(private phraseService: PhrasesService, private router: Router, private route: ActivatedRoute, private displayService: DisplayService) {
 
   }
 
@@ -59,9 +61,16 @@ export class TypingComponent implements OnInit {
     this.newGame();
   }
 
+  updatePlayerData() {
+    var displayObject = new Display(this.childPlayerName, this.time.toString(), this.wpm.toString());
+    console.log(displayObject);
+    this.displayService.addPlayer(displayObject);
+  }
+
   stopGame() {
     this.gameActive = false;
     this.gameStopped = true;
+    this.updatePlayerData();
   }
 
   parseWords() {

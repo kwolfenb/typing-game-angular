@@ -41,7 +41,6 @@ export class PhrasesService {
     this.randomNumber = randomPhrase;
     this.getPhraseById(randomPhrase).subscribe(dataLastEmittedFromObserver => {
       this.currentPhrase = dataLastEmittedFromObserver.phrase;
-
     })
   }
 }

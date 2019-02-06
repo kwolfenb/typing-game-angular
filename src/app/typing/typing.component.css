@@ -58,15 +58,13 @@ img#flag,
   left: 750px;
 }
 
-
-
 #road {
   z-index: -1;
   height: 50px;
   position: absolute;
   left: 0;
   margin-top: 140px;
-
+}
 .gameButton {
   font-family:  "Rockwell Extra Bold", "Rockwell Bold", monospace;
   font-size: 36px;
