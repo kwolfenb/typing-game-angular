@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class PhrasesService {
   phrases: FirebaseListObservable<any[]>;
-  currenctPhrase;
+  currentPhrase;
+  randomNumber: number = -1;
 
   constructor(private database: AngularFireDatabase) {
     this.phrases = database.list('phrases');
@@ -32,11 +33,14 @@ export class PhrasesService {
   }
 
 
-
   getPhrase() {
     let randomPhrase = Math.floor(Math.random() * (5));
+    if (randomPhrase==this.randomNumber) {
+      this.getPhrase();
+    } 
+    this.randomNumber = randomPhrase;
     this.getPhraseById(randomPhrase).subscribe(dataLastEmittedFromObserver => {
-      this.currenctPhrase = dataLastEmittedFromObserver.phrase;
+      this.currentPhrase = dataLastEmittedFromObserver.phrase;
 
     })
   }
