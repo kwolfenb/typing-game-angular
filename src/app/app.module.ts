@@ -7,10 +7,13 @@ import { routing } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { TypingComponent } from "./typing/typing.component";
 import { PhrasesService } from "./phrases.service";
+import { DisplayService } from "./display.service";
+
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { StopwatchComponent } from './stopwatch/stopwatch.component';
+import { DisplayusersComponent } from './displayusers/displayusers.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -20,7 +23,7 @@ export const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, TypingComponent, StopwatchComponent],
+  declarations: [AppComponent, TypingComponent, StopwatchComponent, DisplayusersComponent],
   imports: [
     BrowserModule, 
     FormsModule, 
@@ -29,7 +32,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [PhrasesService],
+  providers: [PhrasesService,DisplayService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

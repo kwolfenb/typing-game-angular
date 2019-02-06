@@ -1,3 +1,4 @@
+
 <div class="gamePlay">
 
   <h3 class="name">Player Name: {{childPlayerName}}</h3>
@@ -10,7 +11,7 @@
   </div>
   <div class="activeGame" *ngIf="gameActive||gameStopped">
     <div>
-      <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)"></textarea>
+      <textarea [disabled]="countdown>0 ? 'true' : 'false'" id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)"></textarea>
     </div>
 
     <div class="stats">
@@ -18,6 +19,12 @@
       <h6>Time: {{time}}</h6>
       <app-stopwatch></app-stopwatch>
       <h6>Words per minute: {{wpm}}</h6>
+    </div>
+
+    <div *ngIf="countingDown" class="countdown">
+      <span *ngIf="countdown==0">Go!</span>
+      <br>
+      <img [ngClass]="{'stoplightred':countdown>=2, 'stoplightyellow':countdown==1, 'stoplightgreen': countdown==0}" src="https://www.freemanhealth.com/assets/images/blog-article-images/traffic_lights.jpg">
     </div>
 
     <!--Car animation-->
@@ -35,4 +42,9 @@
     <img id="flag" src="../../assets/flag2.svg" alt="flag">
 
   </div>
+</div>
+<app-displayusers></app-displayusers>
+
+<div>
+  <button (click)="auto()">admin</button>
 </div>

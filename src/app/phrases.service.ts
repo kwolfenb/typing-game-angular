@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Phrase } from './models/phrase.model';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { Observable } from 'rxjs';
-
+import { Injectable } from "@angular/core";
+import { Phrase } from "./models/phrase.model";
+import {
+  AngularFireDatabase,
+  FirebaseListObservable
+} from "angularfire2/database";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class PhrasesService {
@@ -11,7 +13,7 @@ export class PhrasesService {
   randomNumber: number = -1;
 
   constructor(private database: AngularFireDatabase) {
-    this.phrases = database.list('phrases');
+    this.phrases = database.list("phrases");
   }
 
   getPhrases() {
@@ -29,19 +31,18 @@ export class PhrasesService {
   // ]
 
   getPhraseById(phraseId: number) {
-    return this.database.object('phrases/' + phraseId)
+    return this.database.object("phrases/" + phraseId);
   }
 
-
-  getPhrase() {
-    let randomPhrase = Math.floor(Math.random() * (5));
-    if (randomPhrase==this.randomNumber) {
+  async getPhrase() {
+    let randomPhrase = Math.floor(Math.random() * 5);
+    if (randomPhrase == this.randomNumber) {
       this.getPhrase();
-    } 
+    }
     this.randomNumber = randomPhrase;
     this.getPhraseById(randomPhrase).subscribe(dataLastEmittedFromObserver => {
       this.currentPhrase = dataLastEmittedFromObserver.phrase;
-
-    })
+    });
   }
+
 }

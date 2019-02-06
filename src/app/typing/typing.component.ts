@@ -7,6 +7,8 @@ import { FirebaseListObservable } from 'angularfire2/database';
 import { async } from "@angular/core/testing";
 declare var $: any;
 import { $ } from 'jquery';
+import { DisplayService } from "../display.service";
+import { Display } from "../models/display.model";
 
 
 @Component({
@@ -18,7 +20,7 @@ import { $ } from 'jquery';
 export class TypingComponent implements OnInit {
   phrases: FirebaseListObservable<any[]>;
 
-  constructor(private phraseService: PhrasesService, private router: Router, private route: ActivatedRoute, ) {
+  constructor(private phraseService: PhrasesService, private router: Router, private route: ActivatedRoute, private displayService: DisplayService) {
 
   }
 
@@ -35,6 +37,9 @@ export class TypingComponent implements OnInit {
   gameActive: boolean = false;
   wpm: number = 0;
   gameStopped: boolean = false;
+
+  countdown: number = 3;
+  countingDown: boolean = false;
 
 
   ngOnInit() {
@@ -53,17 +58,25 @@ export class TypingComponent implements OnInit {
     this.currentPhrase = this.phraseService.currentPhrase;
     this.parseWords();
     this.updateActiveWord();
-    this.startTimer();
+    this.startingCountdown();
+    // this.startTimer();
   }
 
   restart() {
-    this.phraseService.getPhrase();
-    this.newGame();
+    this.phraseService.getPhrase()
+      .then(() => this.newGame());
+  }
+
+  updatePlayerData() {
+    var displayObject = new Display(this.childPlayerName, this.time.toString(), this.wpm.toString());
+    console.log(displayObject);
+    this.displayService.addPlayer(displayObject);
   }
 
   stopGame() {
     this.gameActive = false;
     this.gameStopped = true;
+    
   }
 
   parseWords() {
@@ -89,6 +102,8 @@ export class TypingComponent implements OnInit {
     if (this.currentWord >= this.wordArr.length) {
       alert("you are finished. Time: " + this.time);
       this.gameActive = false;
+      this.updatePlayerData();
+      this.stopGame();
     }
   }
 
@@ -135,6 +150,34 @@ export class TypingComponent implements OnInit {
 
   updatePhrase(string) {
     this.phraseWithActiveWord += string + " ";
+
+  }
+
+
+  startingCountdown() {
+    this.countdown = 3;
+    this.countingDown = true;
+    var countdownInterval = setInterval(() => {
+      this.countdown--;
+      console.log(this.countdown);
+      if (this.countdown < 0) {
+        this.startTimer();
+        this.countingDown = false;
+        clearInterval(countdownInterval)
+      }
+    }, 2000)
+  }
+
+  admin() {
+    var robot = setInterval(() => {
+      if (!this.gameStopped) {
+
+        this.typedWord = this.wordArr[this.currentWord];
+        this.onSpaceDown(this.typedWord);
+      } else {
+        clearInterval(robot);
+      }
+    }, 100);
   }
 
 }
