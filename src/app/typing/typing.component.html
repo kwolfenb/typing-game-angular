@@ -14,8 +14,7 @@
   </div>
   <div class="activeGame" *ngIf="gameActive||gameStopped">
     <div>
-      <textarea [disabled]="countdown>0 ? 'true' : 'false'" id="typeArea" [(ngModel)]="typedWord" #typedText
-        (keydown.space)="onSpaceDown(typedText.value)"></textarea>
+      <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)"></textarea>
     </div>
 
     <div class="stats">
@@ -42,6 +41,9 @@
     <img id="carTwo" src="../../assets/car2.png" alt="racecar">
     <img id="road" src="../../assets/road.jpg" alt="">
     <img id="flag" src="../../assets/flag2.svg" alt="flag">
+    <span id='nameFlag'>
+      CPU
+    </span>
     <div *ngIf="countingDown" class="countdown">
       <img [ngClass]="{'stoplightred2':countdown>=2, 'stoplightyellow2':countdown==1, 'stoplightgreen2': countdown==0}"
         src="https://www.freemanhealth.com/assets/images/blog-article-images/traffic_lights.jpg">
@@ -51,7 +53,19 @@
 </div>
 <app-displayusers></app-displayusers>
 
-<div>
-  <button (click)="admin()">admin</button>
-</div>
+
+
+<!-- The Modal -->
+<div *ngIf="gameStopped" id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{childPlayerName}}, your score was {{wpm}} words per minute!</h2>
+    <h3>
+      <div *ngIf="winner">You won!</div>
+      <div *ngIf="!winner">You Lost.</div>
+    </h3>
+    <button (click)="restart()" class="replayButton" *ngIf="gameStopped">Play Again</button>
+  </div>
+
 </div>
