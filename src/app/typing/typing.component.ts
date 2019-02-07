@@ -62,13 +62,14 @@ export class TypingComponent implements OnInit {
     this.wordArr = [];
     this.currentWord = 0;
     this.time = 0;
-    this.winner=null;
+    this.winner = null;
     this.difficulty = this.phraseService.level * 1000;
     this.currentWordOpponent = 0;
     this.currentPhrase = this.phraseService.currentPhrase;
     this.parseWords();
     this.updateActiveWord();
     this.startingCountdown();
+    this.carAudio();
   }
 
   restart() {
@@ -101,25 +102,25 @@ export class TypingComponent implements OnInit {
 
   onSpaceDown(word) {
     if (
-      this.countdown<=0 &&(
-      word == this.wordArr[this.currentWord] ||
-      word == this.wordArr[this.currentWord] + " " ||
-      word == " " + this.wordArr[this.currentWord]
-    )) {
+      this.countdown <= 0 && (
+        word == this.wordArr[this.currentWord] ||
+        word == this.wordArr[this.currentWord] + " " ||
+        word == " " + this.wordArr[this.currentWord]
+      )) {
       this.currentWord++;
       this.clearWords();
       this.updateActiveWord();
     } else if (
-      this.countdown<=0 &&(
-      word !== this.wordArr[this.currentWord] ||
-      word !== this.wordArr[this.currentWord] + " " ||
-      word !== " " + this.wordArr[this.currentWord] + " "
-    )) {
+      this.countdown <= 0 && (
+        word !== this.wordArr[this.currentWord] ||
+        word !== this.wordArr[this.currentWord] + " " ||
+        word !== " " + this.wordArr[this.currentWord] + " "
+      )) {
       this.errorCounter();
     }
     if (this.currentWord >= this.wordArr.length) {
       this.gameActive = false;
-      if(this.winner==null){this.winner=true;}
+      if (this.winner == null) { this.winner = true; }
       this.updatePlayerData();
       this.stopGame();
       this.modal.setAttribute("style", "visibility:block;");
@@ -145,7 +146,7 @@ export class TypingComponent implements OnInit {
     myContainer.innerHTML = this.phraseWithActiveWord;
     this.percentFinished = Math.floor((this.currentWord / this.wordArr.length) * 500) + 'px';
     $("#car").animate({ left: this.percentFinished });
-    this.playCarAudio();
+    this.correctAudio();
 
   }
 
@@ -176,9 +177,15 @@ export class TypingComponent implements OnInit {
 
   }
 
-  playCarAudio() {
+  carAudio() {
     let audio = new Audio();
     audio.src = "../../../assets/audio/carsound2.mp3";
+    audio.load();
+    audio.play();
+  }
+  correctAudio() {
+    let audio = new Audio();
+    audio.src = "../../../assets/audio/correct.mp3";
     audio.load();
     audio.play();
   }
@@ -194,7 +201,7 @@ export class TypingComponent implements OnInit {
     var countdownInterval = setInterval(() => {
       this.countdown--;
       if (this.countdown < 0) {
-        this.typedWord="";
+        this.typedWord = "";
         this.startTimer();
         this.countingDown = false;
         clearInterval(countdownInterval)
@@ -208,13 +215,15 @@ export class TypingComponent implements OnInit {
     this.currentWordOpponent = 0;
     this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / (this.wordArr.length)) * 500) + 'px';
     $("#carTwo").animate({ left: this.percentFinishedOpponent });
+
     var robot = setInterval(() => {
       if (!this.gameStopped && this.currentWordOpponent <= (this.wordArr.length)) {
         this.currentWordOpponent++;
         this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / (this.wordArr.length)) * 500) + 'px';
         $("#carTwo").animate({ left: this.percentFinishedOpponent });
+
       } else {
-      if(this.winner==null){this.winner=false;}
+        if (this.winner == null) { this.winner = false; }
         // this.currentWordOpponent = 0;
         clearInterval(robot);
         console.log("interval cleared")
