@@ -5,12 +5,18 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class AboutService {
   players: FirebaseListObservable<any>;
- 
 
-  constructor(private database: AngularFireDatabase) { 
-    
-    this.players = database.list('players');
+
+
+
+  constructor(private database: AngularFireDatabase) {
+    this.players = database.list('players', {
+      query: {
+        orderByChild: "time",
+      }
+    });
   }
+
 
   getPlayers() {
     return this.players;

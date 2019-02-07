@@ -11,7 +11,7 @@
     <th>Word Per Minute</th>
     <th>Activity Time</th>
   </tr>
-  <tbody *ngFor="let player of players | async">
+  <tbody *ngFor="let player of (players | async)?.slice().reverse()">
     <td>{{player.name}} </td>
     <td>{{player.wpm}} </td>
     <td>{{player.time}} </td>

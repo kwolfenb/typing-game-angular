@@ -4,3 +4,10 @@
     margin-right: 30%;
     font-family:  "Rockwell Extra Bold", "Rockwell Bold", monospace;
 }
+#startButton {
+    font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+    font-size: 36px;
+    background-color: #d2ffad;
+    border-radius: 5px;
+    box-shadow: 0 7px #999;
+  }

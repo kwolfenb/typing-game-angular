@@ -77,7 +77,6 @@ export class TypingComponent implements OnInit {
 
   updatePlayerData() {
     var displayObject = new Display(this.childPlayerName, new Date(Date.now()).toLocaleString(), this.wpm);
-    console.log(displayObject);
     this.displayService.addPlayer(displayObject);
   }
 
@@ -111,7 +110,6 @@ export class TypingComponent implements OnInit {
       this.errorCounter();
     }
     if (this.currentWord >= this.wordArr.length) {
-      console.log(this.modal);
       this.gameActive = false;
       if(this.winner==null){this.winner=true;}
       this.updatePlayerData();
@@ -187,7 +185,6 @@ export class TypingComponent implements OnInit {
     this.countingDown = true;
     var countdownInterval = setInterval(() => {
       this.countdown--;
-      console.log(this.countdown);  
       if (this.countdown < 0) {
         this.typedWord="";
         this.startTimer();
@@ -207,7 +204,6 @@ export class TypingComponent implements OnInit {
         this.currentWordOpponent++;
         this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / this.wordArr.length) * 500) + 'px';
         $("#carTwo").animate({ left: this.percentFinishedOpponent });
-        console.log(this.percentFinishedOpponent);
       } else {
       if(this.winner==null){this.winner=false;}
         // this.currentWordOpponent = 0;
