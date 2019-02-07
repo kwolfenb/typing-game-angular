@@ -1,59 +1,62 @@
 .header {
-    background-color: #003388;
-    height: 150px;
+  background-color: #003388;
+  height: 150px;
 }
 
 h1 {
-    text-align: center;
-    padding-top: 20px; 
-    font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace; 
-    font-size: 40px; font-style: normal; 
-    font-variant: normal; 
-    font-weight: 700; 
-    color: white;
+  text-align: center;
+  padding-top: 50px;
+  font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+  font-size: 40px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  color: white;
 }
 
 h4 {
-    color:white;
-    margin-right:40px;
-    float:right;
+  color: white;
+  margin-right: 40px;
+  float: right;
 }
+
 .startGame {
-    margin-top: 5%;
-    margin-left: 30%;
-    margin-right: 30%;
-    font-family:  "Rockwell Extra Bold", "Rockwell Bold", monospace;
+  margin-top: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
 }
 
 #startButton {
-    margin-top: 5%;
-    font-family:  "Rockwell Extra Bold", "Rockwell Bold", monospace;
-    font-size: 36px;
-    background-color: #d2ffad;
-    border-radius: 5px;
-    box-shadow: 0 7px #999;
-  }
-  
-  #startButton:hover {
-    background-color: #97be77;
-  }
-  #startButton:active {
-    background-color: #97be77;
-    box-shadow: 0 3px #666;
-    transform: translateY(4px);
-  }
+  margin-top: 5%;
+  font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+  font-size: 36px;
+  background-color: #d2ffad;
+  border-radius: 5px;
+  box-shadow: 0 7px #999;
+}
+
+#startButton:hover {
+  background-color: #97be77;
+}
+
+#startButton:active {
+  background-color: #97be77;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
 
 #name {
-    width: 100%;
-    height: 60px;
-    font-size: 30px;
+  width: 100%;
+  height: 60px;
+  font-size: 30px;
 }
 
 .opponent {
-    margin-top: 5%;
+  margin-top: 5%;
 }
 
 img {
-    height: 100px;
-    width: auto;
+  height: 100px;
+  width: auto;
 }
