@@ -47,9 +47,12 @@
 }
 
 #nameFlag {
+  font-size: 22px;
+  font-family: cursive, sans-serif,monospace;
+  color:white;
   position: absolute;
-  margin-top: 33px;
-  left: 765px;
+  margin-top: 40px;
+  left: 767px;
 }
 
 img#flag, #flag2 {

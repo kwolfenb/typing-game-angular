@@ -11,7 +11,7 @@
   </div>
   <div class="activeGame" *ngIf="gameActive||gameStopped">
     <div>
-      <textarea [disabled]="countdown>0 ? 'true' : 'false'" id="typeArea" [(ngModel)]="typedWord" #typedText
+      <textarea id="typeArea" [(ngModel)]="typedWord" #typedText
         (keydown.space)="onSpaceDown(typedText.value)"></textarea>
     </div>
 
@@ -55,7 +55,9 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close" (click)="closeModal()">&times;</span>
-    <h1>{{childPlayerName}}, your score was {{wpm}}!</h1>
+    <h2>{{childPlayerName}}, your score was {{wpm}} words per minute!</h2>
+    <h3><div *ngIf="winner">You won!</div>
+    <div *ngIf="!winner">You Lost.</div></h3>
     <button (click)="restart()" class="replayButton" *ngIf="gameStopped">Play Again</button>
   </div>
 

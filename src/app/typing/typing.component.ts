@@ -42,6 +42,7 @@ export class TypingComponent implements OnInit {
 
   countdown: number = 3;
   countingDown: boolean = false;
+  winner: boolean = null;
 
   // Get the modal
   modal = document.getElementById('myModal');
@@ -60,6 +61,7 @@ export class TypingComponent implements OnInit {
     this.wordArr = [];
     this.currentWord = 0;
     this.time = 0;
+    this.winner=null;
     this.difficulty = this.phraseService.level * 1000;
     this.currentWordOpponent = 0;
     this.currentPhrase = this.phraseService.currentPhrase;
@@ -79,9 +81,6 @@ export class TypingComponent implements OnInit {
     this.displayService.addPlayer(displayObject);
   }
 
-  orderBywpm() {
-
-  }
 
   stopGame() {
     this.gameActive = false;
@@ -95,23 +94,26 @@ export class TypingComponent implements OnInit {
 
   onSpaceDown(word) {
     if (
+      this.countdown<=0 &&(
       word == this.wordArr[this.currentWord] ||
       word == this.wordArr[this.currentWord] + " " ||
       word == " " + this.wordArr[this.currentWord]
-    ) {
+    )) {
       this.currentWord++;
       this.clearWords();
       this.updateActiveWord();
     } else if (
+      this.countdown<=0 &&(
       word !== this.wordArr[this.currentWord] ||
       word !== this.wordArr[this.currentWord] + " " ||
       word !== " " + this.wordArr[this.currentWord] + " "
-    ) {
+    )) {
       this.errorCounter();
     }
     if (this.currentWord >= this.wordArr.length) {
       console.log(this.modal);
       this.gameActive = false;
+      if(this.winner==null){this.winner=true;}
       this.updatePlayerData();
       this.stopGame();
       this.modal.setAttribute("style", "visibility:block;");
@@ -192,24 +194,22 @@ export class TypingComponent implements OnInit {
         this.admin();
         clearInterval(countdownInterval)
       }
-    }, 2000)
+    }, 1000)
   }
 
   admin() {
     this.currentWordOpponent = 0;
+    this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / this.wordArr.length) * 500) + 'px';
+    $("#carTwo").animate({ left: this.percentFinishedOpponent });
     var robot = setInterval(() => {
       if (!this.gameStopped && this.currentWordOpponent <= this.wordArr.length) {
         this.currentWordOpponent++;
         this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / this.wordArr.length) * 500) + 'px';
         $("#carTwo").animate({ left: this.percentFinishedOpponent });
         console.log(this.percentFinishedOpponent);
-      } else if (this.currentWordOpponent >= this.wordArr.length) {
-
-      }
-      else {
-        this.currentWordOpponent = 0;
-        this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / this.wordArr.length) * 500) + 'px';
-        $("#carTwo").animate({ left: this.percentFinishedOpponent });
+      } else {
+      if(this.winner==null){this.winner=false;}
+        // this.currentWordOpponent = 0;
         clearInterval(robot);
       }
     }, this.difficulty);

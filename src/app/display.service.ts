@@ -12,7 +12,7 @@ export class DisplayService {
     this.players = database.list('players', {
       query: {
         orderByChild: "wpm",
-        limitToFirst: 10
+        limitToLast: 10
       }
     });
   }
