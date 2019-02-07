@@ -217,3 +217,9 @@ img#flag, #flag2 {
   text-decoration: none;
   cursor: pointer;
 }
+
+body{
+  background-color: rgb(230, 195, 184);
+  /* background-image: url("../../assets/bg-road.jpg"); */
+ 
+}

@@ -1,13 +1,13 @@
 .header {
-    background-color: #003388;
-    height: 150px;
+    background-color: #0132b9;
+    height: 170px;
 }
 
 h1 {
     text-align: center;
     padding-top: 20px; 
     font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace; 
-    font-size: 40px; font-style: normal; 
+    font-size: 80px; font-style: normal; 
     font-variant: normal; 
     font-weight: 700; 
     color: white;
@@ -51,9 +51,14 @@ h4 {
 
 .opponent {
     margin-top: 5%;
+    
 }
 
 img {
     height: 100px;
     width: auto;
+}
+
+.row{
+    margin-left: 300px;
 }

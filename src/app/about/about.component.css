@@ -11,3 +11,8 @@ table, th, td {
 th {
     font-size: 20px;
 }
+
+h2{
+    color: red;
+    font-size: 50px;
+}

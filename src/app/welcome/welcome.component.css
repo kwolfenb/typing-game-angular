@@ -10,4 +10,12 @@
     background-color: #d2ffad;
     border-radius: 5px;
     box-shadow: 0 7px #999;
-  }
+}
+
+.startGame{
+    margin-top: -950px;
+    margin-left: 180px;
+}
+img{
+    width:100%;
+}
