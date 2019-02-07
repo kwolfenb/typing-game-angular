@@ -214,13 +214,13 @@ export class TypingComponent implements OnInit {
     clearInterval(robot);
     this.currentWordOpponent = 0;
     this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / (this.wordArr.length)) * 500) + 'px';
-    $("#carTwo").animate({ left: this.percentFinishedOpponent });
+    $(".carTwo").animate({ left: this.percentFinishedOpponent });
 
     var robot = setInterval(() => {
       if (!this.gameStopped && this.currentWordOpponent <= (this.wordArr.length)) {
         this.currentWordOpponent++;
         this.percentFinishedOpponent = Math.floor((this.currentWordOpponent / (this.wordArr.length)) * 500) + 'px';
-        $("#carTwo").animate({ left: this.percentFinishedOpponent });
+        $(".carTwo").animate({ left: this.percentFinishedOpponent });
 
       } else {
         if (this.winner == null) { this.winner = false; }

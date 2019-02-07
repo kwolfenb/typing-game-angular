@@ -1,6 +1,7 @@
 .gamePlay {
   margin-top: 5%;
   margin-left: 2%;
+  margin-bottom: 8%;
 }
 
 .name {
@@ -64,7 +65,7 @@
   color: white;
   position: absolute;
   margin-top: 40px;
-  left: 767px;
+  left: 867px;
 }
 
 img#flag,
@@ -72,14 +73,14 @@ img#flag,
   z-index: -2;
   position: absolute;
   margin-top: 20px;
-  left: 750px;
+  left: 850px;
 }
 
 #road {
   z-index: -1;
   height: 50px;
   position: absolute;
-  left: 0;
+  left: 200px;
   margin-top: 140px;
 }
 

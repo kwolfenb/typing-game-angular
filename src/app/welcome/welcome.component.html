@@ -1,4 +1,4 @@
-<img src="../../assets/bd-car.jpg">
+<img src="../../assets/racetrack.jpg">
 <div class="startGame" *ngIf="!start">
    
     <h3>Enter your name:</h3>
@@ -16,6 +16,6 @@
             </select>
         </div>
         <br>
-        <button type="submit" id="startButton" (click)="startGame(playerName.value, opponent.value)" routerLink="typing">Submit</button>
+        <button [disabled]="!playerName.value" type="submit" id="startButton" (click)="startGame(playerName.value, opponent.value)" routerLink="typing">Submit</button>
     </form>
 </div>

@@ -1,4 +1,7 @@
 .info {
+    background-color: lightblue;
+}
+.info {
     text-align: center;
     margin: 30px;
     padding: 50px;

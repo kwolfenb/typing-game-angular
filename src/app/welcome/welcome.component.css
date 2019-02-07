@@ -1,7 +1,5 @@
 .startGame {
-    margin-top: 5%;
-    margin-left: 30%;
-    margin-right: 30%;
+
     font-family:  "Rockwell Extra Bold", "Rockwell Bold", monospace;
 }
 #startButton {
@@ -13,9 +11,12 @@
 }
 
 .startGame{
+    position: sticky;
     margin-top: -950px;
     margin-left: 180px;
 }
 img{
-    width:100%;
+    width:100vw;
+    height: 100vh;
+
 }
