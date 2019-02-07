@@ -1,15 +1,10 @@
-
 <div class="container">
-    
-<span class="go" *ngIf="countdown==0">Go!</span>
-<div class="gamePlay">
 
-  <h3 class="name">Player Name: {{childPlayerName}}</h3>
-  <button (click)="newGame()" class="gameButton" *ngIf="!gameActive&&!gameStopped">Start Game!</button>
-  <button (click)="stopGame()" class="stopButton" *ngIf="gameActive||gameStopped">Stop</button>
-  <button (click)="restart()" class="gameButton" *ngIf="gameStopped">New Game</button>
+  <span class="go" *ngIf="countdown==0">Go!</span>
+  <div class="gamePlay">
 
-  <div class="phraseBox">
+
+  <div [ngStyle]="{'border': gameActive ? 'solid black' : 'none'}" class="phraseBox">
     <div [innerHTML]="phraseWithActiveWord"></div>
   </div>
   <div class="activeGame" *ngIf="gameActive||gameStopped">
@@ -17,55 +12,71 @@
       <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)"></textarea>
     </div>
 
-    <div class="stats">
-      <h6>Errors: {{errorCount}}</h6>
-      <h6>Time: {{time}}</h6>
-      <h6>Words per minute: {{wpm}}</h6>
+    <h3 class="name">Player Name: {{childPlayerName}}</h3>
+    <button (click)="newGame()" class="gameButton" *ngIf="!gameActive&&!gameStopped">Start Game!</button>
+    <button (click)="stopGame()" class="stopButton" *ngIf="gameActive||gameStopped">Stop</button>
+    <button (click)="restart()" class="gameButton" *ngIf="gameStopped">New Game</button>
+
+    <div class="phraseBox">
+      <div [innerHTML]="phraseWithActiveWord"></div>
     </div>
+    <div class="activeGame" *ngIf="gameActive||gameStopped">
+      <div>
+        <textarea id="typeArea" [(ngModel)]="typedWord" #typedText (keydown.space)="onSpaceDown(typedText.value)"></textarea>
+      </div>
+
+      <div class="stats">
+        <h6>Errors: {{errorCount}}</h6>
+        <h6>Time: {{time}}</h6>
+        <h6>Words per minute: {{wpm}}</h6>
+      </div>
 
 
-    <!--Car animation-->
-    <img id="car" src="../../assets/car.png" alt="racecar">
-    <img id="road" src="../../assets/road.jpg" alt="">
-    <img id="flag" src="../../assets/flag.svg" alt="flag">
-    <span id='nameFlag'>
-      {{childPlayerName}}
-    </span>
-    <div *ngIf="countingDown" class="countdown">
-      <img [ngClass]="{'stoplightred':countdown>=2, 'stoplightyellow':countdown==1, 'stoplightgreen': countdown==0}"
-        src="https://www.freemanhealth.com/assets/images/blog-article-images/traffic_lights.jpg">
+      <!--Car animation-->
+      <img id="car" src="../../assets/car.png" alt="racecar">
+      <img id="road" src="../../assets/road.jpg" alt="">
+      <img id="flag" src="../../assets/flag.svg" alt="flag">
+      <span id='nameFlag'>
+        {{childPlayerName}}
+      </span>
+      <div *ngIf="countingDown" class="countdown">
+        <img [ngClass]="{'stoplightred':countdown>=2, 'stoplightyellow':countdown==1, 'stoplightgreen': countdown==0}"
+          src="https://www.freemanhealth.com/assets/images/blog-article-images/traffic_lights.jpg">
+      </div>
+
+      <br>
+      <!--Car2  animation-->
+      <img *ngIf="difficulty==3000" class="carTwo" id="snail" src="../../assets/snail.png" alt="snail">
+      <img *ngIf="difficulty==2000" class="carTwo" id="bike" src="../../assets/bike.png" alt="bike">
+      <img *ngIf="difficulty==1000" class="carTwo" src="../../assets/car2.png" alt="racecar">
+      <img *ngIf="difficulty==500" class="carTwo" id="sonic" src="../../assets/sonic.png" alt="sonic">
+      <img id="road" src="../../assets/road.jpg" alt="">
+      <img id="flag" src="../../assets/flag2.svg" alt="flag">
+      <span id='nameFlag'>
+        CPU
+      </span>
+      <div *ngIf="countingDown" class="countdown">
+        <img [ngClass]="{'stoplightred2':countdown>=2, 'stoplightyellow2':countdown==1, 'stoplightgreen2': countdown==0}"
+          src="https://www.freemanhealth.com/assets/images/blog-article-images/traffic_lights.jpg">
+      </div>
+
     </div>
+  </div>
+  <app-displayusers></app-displayusers>
 
-    <br>
-    <!--Car2  animation-->
-    <img id="carTwo" src="../../assets/car2.png" alt="racecar">
-    <img id="road" src="../../assets/road.jpg" alt="">
-    <img id="flag" src="../../assets/flag2.svg" alt="flag">
-    <span id='nameFlag'>
-      CPU
-    </span>
-    <div *ngIf="countingDown" class="countdown">
-      <img [ngClass]="{'stoplightred2':countdown>=2, 'stoplightyellow2':countdown==1, 'stoplightgreen2': countdown==0}"
-        src="https://www.freemanhealth.com/assets/images/blog-article-images/traffic_lights.jpg">
+
+
+  <!-- The Modal -->
+  <div *ngIf="gameStopped" id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>{{childPlayerName}}, your score was {{wpm}} words per minute!</h2>
+      <h3>
+        <div *ngIf="winner">You won!</div>
+        <div *ngIf="!winner">You Lost.</div>
+      </h3>
+      <button (click)="restart()" class="replayButton" *ngIf="gameStopped">Play Again</button>
     </div>
 
   </div>
-</div>
-<app-displayusers></app-displayusers>
-
-
-
-<!-- The Modal -->
-<div *ngIf="gameStopped" id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close" (click)="closeModal()">&times;</span>
-    <h2>{{childPlayerName}}, your score was {{wpm}} words per minute!</h2>
-    <h3>
-      <div *ngIf="winner">You won!</div>
-      <div *ngIf="!winner">You Lost.</div>
-    </h3>
-    <button (click)="restart()" class="replayButton" *ngIf="gameStopped">Play Again</button>
-  </div>
-
-</div>

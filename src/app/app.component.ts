@@ -12,7 +12,9 @@ export class AppComponent {
 
   constructor(private phraseService: PhrasesService) {}
 
-
+  refresh() {
+    location.reload();
+  }
   
 
 

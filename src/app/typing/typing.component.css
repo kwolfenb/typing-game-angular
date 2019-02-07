@@ -17,9 +17,9 @@
   padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: solid black 2px;
   width: 50%;
   font-size: 20px;
+  border-radius: 8px;
 }
 
 #typeArea {
@@ -42,20 +42,34 @@
 #car {
   position: relative;
 }
-#carTwo {
+
+.carTwo {
   position: relative;
 }
 
+#snail {
+  position: relative;
+  margin-top: 40px;
+}
+
+#bike {
+  position: relative;
+
+}
+
 #nameFlag {
+  z-index: -1;
   font-size: 22px;
-  font-family: cursive, sans-serif,monospace;
-  color:white;
+  font-family: cursive, sans-serif, monospace;
+  color: white;
   position: absolute;
   margin-top: 40px;
   left: 767px;
 }
 
-img#flag, #flag2 {
+img#flag,
+#flag2 {
+  z-index: -2;
   position: absolute;
   margin-top: 20px;
   left: 750px;
@@ -78,7 +92,7 @@ img#flag, #flag2 {
   box-shadow: 0 7px #999;
 }
 
-.replayButton{
+.replayButton {
   width: 50%;
   margin: auto;
   font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
@@ -101,6 +115,7 @@ img#flag, #flag2 {
 .gameButton:hover {
   background-color: #97be77;
 }
+
 .gameButton:active {
   background-color: #97be77;
   box-shadow: 0 3px #666;
@@ -114,9 +129,11 @@ img#flag, #flag2 {
   border-radius: 5px;
   box-shadow: 0 7px #999;
 }
+
 .stopButton:hover {
   background-color: #c07676;
 }
+
 .stopButton:active {
   background-color: #c07676;
   box-shadow: 0 3px #666;
@@ -132,32 +149,42 @@ img#flag, #flag2 {
 
 }
 
-.stoplightred, .stoplightred2{
+.stoplightred,
+.stoplightred2 {
   height: 100px;
   width: auto;
   position: absolute;
-  right:302px;
+  right: 302px;
   clip: rect(0, 155px, 100px, 105px);
 }
-.stoplightyellow, .stoplightyellow2 {
+
+.stoplightyellow,
+.stoplightyellow2 {
   height: 100px;
   width: auto;
-  right:251px;
+  right: 251px;
   position: absolute;
   clip: rect(0, 100px, 100px, 52px);
 }
-.stoplightgreen, .stoplightgreen2 {
+
+.stoplightgreen,
+.stoplightgreen2 {
   height: 100px;
   width: auto;
-  right:201px;
+  right: 201px;
   position: absolute;
   clip: rect(0, 50px, 100px, 0);
 }
 
-.stoplightred2, .stoplightyellow2, .stoplightgreen2 {
+.stoplightred2,
+.stoplightyellow2,
+.stoplightgreen2 {
   top: 910px;
 }
-.stoplightred, .stoplightyellow, .stoplightgreen {
+
+.stoplightred,
+.stoplightyellow,
+.stoplightgreen {
   top: 650px;
 }
 
@@ -182,16 +209,24 @@ img#flag, #flag2 {
 /* The Modal (background) */
 .modal {
   display: block;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -223,3 +258,4 @@ body{
   /* background-image: url("../../assets/bg-road.jpg"); */
  
 }
+

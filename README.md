@@ -2,26 +2,30 @@
 
 #### _A type racing web application using Angular, and Firebase Realtime Database_
 
-###_By Kenny Wolfenberger, James Cho, Gulzat Karimova, and Manasa Vesala_
+
+By Kenny Wolfenberger, James Cho, Gulzat Karimova, and Manasa Vesala_
 
 ## Description
 
-_This is an online typing competition, TypeRacer, allows people to race againest computer by typing quotes from books, movies, and songs._
+_This is an online typing competition, TypeRacer, allows people to race against the computer by typing various quotes from books, movies, and songs._
 
 ## Type Racer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
-## Layout of the page
+### Specs
+| Spec 
+| :-------------    
+| Program will take user input name and difficulty to initialize a new game.
+| Program will start game once the user clicks on the Start Game button.
+| Program will fetch a random paragraph from the database for the user to type.
+| Program will prompt the user to start typing once the light turns green.
+| Program will highlight the active word that the user is typing. 
+| Program will move to the next word if user input is correct, or increment the error count if the input is incorrect.
+| Program will assign a different image for CPU according to difficulty and will move towards the finish line according to their assigned speeds.
+| Program will display a modal with the results once the player finishes typing the paragraph.
+| Program will push user info and score to the database where it can be accessed in the About Us section.
 
-- Separate application into components.
-- There will be a component with the welcome, players, typing and about.
-- Under that there will be a component of images and products to buy that users typically visit.
-- under that there is a component that holds images and links that are in a row for shopping.
-- In nav-bar component there is a customer support page where users can contact them.
-- If you click on the names details will be appeared to contact them.
-- A an admin you can add people who serves as customer support.
-- As an admin you can edit or remove the list of contacts in customer support.
 
 
 ## Setup/Installation Requirements
@@ -69,6 +73,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * _GitHub_
 * _HTML_
 * _CSS_
+* _JQuery_
 * _Firebase Realtime Database_
 * _Firebase Authentication_
 
