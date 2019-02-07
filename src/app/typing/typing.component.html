@@ -9,7 +9,7 @@
   <button (click)="stopGame()" class="stopButton" *ngIf="gameActive||gameStopped">Stop</button>
   <button (click)="restart()" class="gameButton" *ngIf="gameStopped">New Game</button>
 
-  <div class="phraseBox">
+  <div [ngStyle]="{'border': gameActive ? 'solid black' : 'none'}" class="phraseBox">
     <div [innerHTML]="phraseWithActiveWord"></div>
   </div>
   <div class="activeGame" *ngIf="gameActive||gameStopped">

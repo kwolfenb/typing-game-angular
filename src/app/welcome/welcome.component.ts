@@ -10,8 +10,10 @@ export class WelcomeComponent implements OnInit {
   constructor(private phraseService: PhrasesService) { }
 
   ngOnInit() {
+    this.start=false;
   }
   start: boolean = false;
+  
   startGame(name, opponent) {
     this.start = true;
     this.phraseService.playerName = name;
