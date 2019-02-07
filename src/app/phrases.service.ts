@@ -36,7 +36,7 @@ export class PhrasesService {
   }
 
   async getPhrase() {
-    let randomPhrase = Math.floor(Math.random() * 5);
+    let randomPhrase = Math.floor(Math.random() * 19);
     if (randomPhrase == this.randomNumber) {
       this.getPhrase();
     }
