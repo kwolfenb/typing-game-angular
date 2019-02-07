@@ -156,3 +156,12 @@ img#flag, #flag2 {
   position: fixed;
   margin-left: 50%;
 }
+
+.about {
+  background-color: #003388;
+  height: 50px;
+  width: 100%;
+  color: white;
+ 
+
+}

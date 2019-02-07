@@ -12,12 +12,8 @@ export class AppComponent {
 
   constructor(private phraseService: PhrasesService) {}
 
-  start: boolean = false;
+
   
-  startGame(name, opponent) {
-    this.start = true;
-    this.phraseService.playerName = name;
-    this.phraseService.level = opponent;
-  }
+
 
 }

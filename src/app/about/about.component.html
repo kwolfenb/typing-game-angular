@@ -1,0 +1,20 @@
+<div class="container" class="info"><br>
+<h2>About TypeRacer</h2><br>
+<h4>
+  The award-winning typing competition, TypeRacer, allows people to race by typing quotes from books, movies, and songs. 
+</h4><br><br>
+<hr>
+<h3>List of Players</h3><br>
+<table style="width:100%">
+  <tr>
+    <th>UserName</th>
+    <th>Word Per Minute</th>
+    <th>Activity Time</th>
+  </tr>
+  <tbody *ngFor="let player of players | async">
+    <td>{{player.name}} </td>
+    <td>{{player.wpm}} </td>
+    <td>{{player.time}} </td>
+  </tbody>
+</table>
+</div>

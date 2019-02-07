@@ -13,6 +13,9 @@ import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DisplayusersComponent } from './displayusers/displayusers.component';
+import { AboutComponent } from './about/about.component';
+import { AboutService } from "./about.service";
+import { WelcomeComponent } from './welcome/welcome.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -22,7 +25,7 @@ export const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, TypingComponent, DisplayusersComponent],
+  declarations: [AppComponent, TypingComponent, DisplayusersComponent, AboutComponent, WelcomeComponent],
   imports: [
     BrowserModule, 
     FormsModule, 
@@ -31,7 +34,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [PhrasesService,DisplayService],
+  providers: [PhrasesService,DisplayService,AboutService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

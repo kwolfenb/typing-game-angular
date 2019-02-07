@@ -12,6 +12,12 @@ h1 {
     font-weight: 700; 
     color: white;
 }
+
+h4 {
+    color:white;
+    margin-right:40px;
+    float:right;
+}
 .startGame {
     margin-top: 5%;
     margin-left: 30%;

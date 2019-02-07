@@ -1,0 +1,13 @@
+.info {
+    text-align: center;
+    margin: 30px;
+    padding: 50px;
+}
+table, th, td {
+    border:1px solid black;
+    border-collapse: collapse;
+    padding: 20px;
+}
+th {
+    font-size: 20px;
+}

@@ -1,23 +1,7 @@
 <div class="header">
-    <h1>TypeRacing</h1>
+    <h1 routerLink="">TypeRacing</h1>
+    <h4 routerLink="about">About Us</h4>
+       
 </div>
-<div class="startGame" *ngIf="!start">
-    <h3>Enter your name:</h3>
-    <form>
-        <input #playerName id="name" type="text">
-        <div class="opponent">
 
-            <h3>Choose your opponent difficulty:</h3>
-            
-            <select #opponent>
-                <option value="3">Easy</option>
-                <option value="2">Medium</option>
-                <option value="1">Hard</option>
-                <option value=".5">Insanity</option>
-            </select>
-        </div>
-        <br>
-        <button type="submit" id="startButton" (click)="startGame(playerName.value, opponent.value)">Submit</button>
-    </form>
-</div>
-<router-outlet *ngIf="start"></router-outlet>
+<router-outlet></router-outlet>
