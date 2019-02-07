@@ -18,12 +18,5 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.players = this.aboutService.getPlayers();
-
-    this.players = database.list('players', {
-      query: {
-        orderByChild: "time",
-        
-      }
   }
-
 }
