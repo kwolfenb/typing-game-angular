@@ -12,17 +12,19 @@ _This is an online typing competition, TypeRacer, allows people to race against 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
-## Layout of the page
+### Specs
+| Spec 
+| :-------------    
+| Program will take user input name and difficulty to initialize a new game.
+| Program will start game once the user clicks on the Start Game button.
+| Program will fetch a random paragraph from the database for the user to type.
+| Program will prompt the user to start typing once the light turns green.
+| Program will highlight the active word that the user is typing. 
+| Program will move to the next word if user input is correct, or increment the error count if the input is incorrect.
+| Program will assign a different image for CPU according to difficulty and will move towards the finish line according to their assigned speeds.
+| Program will display a modal with the results once the player finishes typing the paragraph.
+| Program will push user info and score to the database where it can be accessed in the About Us section.
 
-_Separate application into components._
-_There will be a component with the top navbar, office, windows,surface,customer support and admin._
-_Under that there will be a component of images and products to buy that users typically visit._
-_under that there is a component that holds images and links that are in a row for shopping._
-_In nav-bar component there is a customer support page where users can contact them._
-_If you click on the names details will be appeared to contact them._
-_A an admin you can add people who serves as customer support._
-_As an admin you can edit or remove the list of contacts in customer support._
-_Footer component with links to various services, help, and 'about us' pages._
 
 ## Setup/Installation Requirements
 
