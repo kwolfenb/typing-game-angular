@@ -1,27 +1,80 @@
-# Typeracing
+# _Type Racer_
+
+#### _A type racing web application using Angular, and Firebase Realtime Database_
+
+###_By Kenny Wolfenberger, James Cho, Gulzat Karimova, and Manasa Vesala_
+
+## Description
+
+_This is an online typing competition, TypeRacer, allows people to race againest computer by typing quotes from books, movies, and songs._
+
+## Type Racer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
-## Development server
+## Layout of the page
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+_Separate application into components._
+_There will be a component with the top navbar, office, windows,surface,customer support and admin._
+_Under that there will be a component of images and products to buy that users typically visit._
+_under that there is a component that holds images and links that are in a row for shopping._
+_In nav-bar component there is a customer support page where users can contact them._
+_If you click on the names details will be appeared to contact them._
+_A an admin you can add people who serves as customer support._
+_As an admin you can edit or remove the list of contacts in customer support._
+_Footer component with links to various services, help, and 'about us' pages._
 
-## Code scaffolding
+## Setup/Installation Requirements
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Webpage is deployed on Firebase -> https://www.firebaseapp.com/
+- Clone this repository https://github.com/kwolfenb/typing-game-angular.git
+- Install Node.js
+- Open Mac Terminal or Windows Command Prompt.
+- Install Typescript through this command: "npm install -g typescript".
+- Install Angular CLI through this command: "npm install -g @angular/cli".
+- Type "cd typing-game-angular" and press enter to go to the main directory.
+- Type "npm install" and press enter to install plugins and dependencies.
+- Go to https://firebase.google.com/ and log in or create an account.
+- Create a firebase project.
+- Click on the circular gear icon next to the 'Project Overview' in the project you just created in Firebase.
+  * Under the general tab, click on "Add Firebase to your web app:.
+  * Copy everything inside the curly brackets of 'var config = { ... }.
+- Create a file in the app folder called 'api-keys.ts'.
+  * Inside the api-keys.ts file, type in 'export const masterFirebaseConfig = {}'
+  * Inside the curly braces, paste what you copied earlier from Firebase.
+- Click on 'Database' on the left side of Firebase console under your project and create a database. 
+  * Next to the 'Database' header click on the dropdown menu and click on 'Realtime Database'.
+  * Click on the icon that looks like three vertical dots under the 'Data' tab and click on 'Import JSON'.
+  * Import the 'sample-exclusive-booklist.json' file inside this repo in the root folder."
+  * Click on the 'Rules' tab of the database. 
+  * Under rules, change the 'false' of '.read' to true.
+- Type in "ng serve -o" to start the app in your Chrome browswer.
 
-## Build
+## Support and contact details
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+* _Manasa Vesala - vesalamanasa@gmail.com_
+* _Gulzat Karimova -  gulzat.karimova@gmail.com_
+* _James Cho - hwisoocho@gmail.com_
+* _Kenny Wolfenberger -  kennywolfenberger@gmail.com_
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Technologies Used
 
-## Running end-to-end tests
+* _TypeScript_
+* _node.js_
+* _npm_
+* _Angular 5_
+* _VS Code_
+* _Git_
+* _GitHub_
+* _HTML_
+* _CSS_
+* _Firebase Realtime Database_
+* _Firebase Authentication_
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## License
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+*This software is licensed under the MIT license.*
+
+Copyright (c) 2019 **_Manasa Vesala, Gulzat Karimova, James Cho, Kenny Wolfenberger_**
