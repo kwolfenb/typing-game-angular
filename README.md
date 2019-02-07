@@ -2,7 +2,7 @@
 
 #### _A type racing web application using Angular, and Firebase Realtime Database_
 
-###_By Kenny Wolfenberger, James Cho, Gulzat Karimova, and Manasa Vesala_
+### _By Kenny Wolfenberger, James Cho, Gulzat Karimova, and Manasa Vesala_
 
 ## Description
 
@@ -10,7 +10,7 @@ _This is an online typing competition, TypeRacer, allows people to race againest
 
 ## Type Racer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+_This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5._
 
 ## Layout of the page
 
