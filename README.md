@@ -30,7 +30,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Setup/Installation Requirements
 
-- Webpage is deployed on Firebase -> https://www.firebaseapp.com/
+- Webpage is deployed on Firebase -> https://typeracer-50606.firebaseapp.com/
 - Clone this repository https://github.com/kwolfenb/typing-game-angular.git
 - Install Node.js
 - Open Mac Terminal or Windows Command Prompt.
