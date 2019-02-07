@@ -252,3 +252,10 @@ img#flag,
   text-decoration: none;
   cursor: pointer;
 }
+
+body{
+  background-color: rgb(229, 223, 236);
+  /* background-image: url("../../assets/bg-road.jpg"); */
+ 
+}
+

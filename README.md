@@ -27,6 +27,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 | Program will push user info and score to the database where it can be accessed in the About Us section.
 
 
+
 ## Setup/Installation Requirements
 
 - Webpage is deployed on Firebase -> https://www.firebaseapp.com/
