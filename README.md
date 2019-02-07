@@ -2,7 +2,8 @@
 
 #### _A type racing web application using Angular, and Firebase Realtime Database_
 
-### _By Kenny Wolfenberger, James Cho, Gulzat Karimova, and Manasa Vesala_
+
+By Kenny Wolfenberger, James Cho, Gulzat Karimova, and Manasa Vesala_
 
 ## Description
 
