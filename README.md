@@ -14,14 +14,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Layout of the page
 
-_Separate application into components._
-_There will be a component with the welcome, players, typing and about._
-_Under that there will be a component of images and products to buy that users typically visit._
-_under that there is a component that holds images and links that are in a row for shopping._
-_In nav-bar component there is a customer support page where users can contact them._
-_If you click on the names details will be appeared to contact them._
-_A an admin you can add people who serves as customer support._
-_As an admin you can edit or remove the list of contacts in customer support._
+- Separate application into components.
+- There will be a component with the welcome, players, typing and about.
+- Under that there will be a component of images and products to buy that users typically visit.
+- under that there is a component that holds images and links that are in a row for shopping.
+- In nav-bar component there is a customer support page where users can contact them.
+- If you click on the names details will be appeared to contact them.
+- A an admin you can add people who serves as customer support.
+- As an admin you can edit or remove the list of contacts in customer support.
 
 
 ## Setup/Installation Requirements
