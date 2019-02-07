@@ -187,8 +187,9 @@ export class TypingComponent implements OnInit {
     this.countingDown = true;
     var countdownInterval = setInterval(() => {
       this.countdown--;
-      console.log(this.countdown);
+      console.log(this.countdown);  
       if (this.countdown < 0) {
+        this.typedWord="";
         this.startTimer();
         this.countingDown = false;
         this.admin();
