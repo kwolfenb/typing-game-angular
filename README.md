@@ -6,7 +6,7 @@
 
 ## Description
 
-_This is an online typing competition, TypeRacer, allows people to race againest computer by typing quotes from books, movies, and songs._
+_This is an online typing competition, TypeRacer, allows people to race against the computer by typing various quotes from books, movies, and songs._
 
 ## Type Racer
 
@@ -69,6 +69,7 @@ _Footer component with links to various services, help, and 'about us' pages._
 * _GitHub_
 * _HTML_
 * _CSS_
+* _JQuery_
 * _Firebase Realtime Database_
 * _Firebase Authentication_
 
